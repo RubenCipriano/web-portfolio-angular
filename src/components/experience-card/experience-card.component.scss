@@ -1,0 +1,36 @@
+.experience-card {
+    border: 1px solid transparent;
+    padding: 20px;
+    background-color: var(--primary-color-darker);
+    border-radius: 10px;
+    transition: 1s all;
+    
+    cursor: default;
+  
+    .icon-box {
+      background-color: var(--primary-color-lighter);
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 1.4rem;
+      height: 50px;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1/1;
+    }
+
+    
+  
+    .flag {
+      width: 20px;
+      height: auto;
+      border-radius: 2px;
+    }
+  }
+  
+
+.experience-card:hover {
+  border: 1px solid #434343;
+}

@@ -1,0 +1,31 @@
+<div class="container text-white experience-card ps-3 mb-4">
+    <div class="row align-items-start justify-content-between">
+      <!-- Left Side: Icon + Text -->
+      <div class="col-md-9 d-flex">
+        <!-- Icon -->
+        <div class="icon-box me-3">
+          <i class="{{ icon }}"></i>
+        </div>
+  
+        <!-- Text content -->
+        <div>
+          <h5 class="fw-bold mb-3">{{ role }}</h5>
+          <h6 class="fw-semibold">{{ company }}</h6>
+          <p class="text-secondary-white mb-3">{{ description }}</p>
+          <div class="location d-flex align-items-center">
+            <img [src]="flagSrc" alt="flag" class="flag me-2">
+            <span>{{ location }}</span>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Right Side: Dates -->
+      <div class="col-md-3 text-md-end mt-3 mt-md-0">
+        <p class="fw-semibold mb-0">{{ startDate | date: 'MMM, yyyy' }} - 
+            {{ endDate.toLowerCase() === 'present' ? 'Presente' : (endDate | date: 'MMM, yyyy') }}
+        </p>
+        <small class="text-secondary-white">{{ duration }}</small>
+      </div>
+    </div>
+</div>
+  

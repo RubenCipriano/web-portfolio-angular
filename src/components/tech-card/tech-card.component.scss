@@ -1,0 +1,62 @@
+.custom-card {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: var(--primary-color-darker);
+    display: flex;
+    align-items: center;
+    height: 80px;
+    transition: 1s all;
+    cursor: default;
+
+    h4 {
+        font-size: 15px;
+        margin: 0;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
+
+.custom-card:hover {
+  border: 1px solid #434343;
+}
+
+.image-responsive {
+    padding: 10px;
+    border-radius: 10px;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+}
+
+.bg-red-dark {
+    background-color: rgba(143, 0, 0, 0.5);
+}
+
+.bg-blue-dark {
+    background-color: rgba(0, 91, 143, 0.5);
+}
+
+.bg-purple-dark {
+    background-color: rgba(100, 0, 143, 0.5);
+}
+
+.bg-pink-dark {
+    background-color: rgba(143, 0, 114, 0.5);
+}
+
+.bg-white-dark {
+    background-color: rgba(83, 83, 83, 0.5);
+}
+
+
+.bg-orange-dark {
+    background-color: rgba(104, 56, 0, 0.5);
+}
+
+.bg-green-dark {
+    background-color: rgba(15, 102, 0, 0.5);
+}

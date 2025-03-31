@@ -1,0 +1,40 @@
+.button-grouping {
+    display: flex;
+    flex-direction: row;
+}
+
+.custom-button {
+    padding: 10px 20px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    border-radius: 15px;
+    transition: 1s all;
+}
+
+.custom-button:hover {
+    background-color: #2e2e2e;
+}
+
+
+.align-middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.bg-dark-transparent {
+    background-color: var(--primary-color-darker)
+}
+
+.border-white {
+    border: 1px solid var(--secundary-color-white) !important;
+}
+
+.color-primary {
+    color: var(--primary-color-lighter);
+}
+

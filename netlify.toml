@@ -1,9 +1,6 @@
 [build]
-  command = "npm run build:ssr && npm run prerender"
+  command = "npm run build:ssr && npm run prerender || true"
   publish = "dist/portfolio-web/browser"
-
-[functions]
-  node_bundler = "esbuild"
 
 [context.production.environment]
   NETLIFY_USE_NETLIFY_ANGULAR_RUNTIME = "false"

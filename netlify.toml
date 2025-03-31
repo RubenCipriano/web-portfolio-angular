@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build:ssr && npm run prerender"
+  publish = "dist/web-app/browser"
+
+[[plugins]]
+  package = "@netlify/plugin-ignore-build"

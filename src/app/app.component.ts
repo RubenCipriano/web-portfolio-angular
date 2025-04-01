@@ -25,31 +25,31 @@ export class AppComponent implements OnInit {
     {
       title: 'Angular',
       description: 'Angular framework',
-      image: '/assets/angular_logo.png',
+      image: 'assets/angular_logo.svg',
       bgColorClass: 'bg-red-dark'
     },
     {
       title: 'Typescript',
       description: 'Javascript but better',
-      image: '/assets/typescript_logo.png',
+      image: 'assets/typescript_logo.svg',
       bgColorClass: 'bg-blue-dark'
     },
     {
       title: 'C#',
       description: 'Programming Language',
-      image: '/assets/csharp_logo.png',
+      image: 'assets/csharp_logo.svg',
       bgColorClass: 'bg-purple-dark'
     },
     {
       title: 'GIT',
       description: 'Version Control',
-      image: '/assets/git_logo.png',
+      image: 'assets/git_logo.svg',
       bgColorClass: 'bg-orange-dark'
     },
     {
       title: 'SCSS',
       description: 'CSS but better',
-      image: '/assets/sass_logo.png',
+      image: 'assets/sass_logo.svg',
       bgColorClass: 'bg-pink-dark'
     },
     {
@@ -61,13 +61,13 @@ export class AppComponent implements OnInit {
     {
       title: 'NodeJS',
       description: 'Javascript framework',
-      image: '/assets/nodejs_logo.png',
+      image: 'assets/nodejs_logo.svg',
       bgColorClass: 'bg-green-dark'
     },
     {
       title: 'Bootstrap',
       description: 'Tailwind but older',
-      image: '/assets/bootstrap_logo.png',
+      image: 'assets/bootstrap_logo.svg',
       bgColorClass: 'bg-purple-dark'
     },
   ];  

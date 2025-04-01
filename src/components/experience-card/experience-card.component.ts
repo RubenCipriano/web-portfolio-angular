@@ -17,6 +17,7 @@ export class ExperienceCardComponent implements OnInit {
   @Input() icon!: string;
   @Input() startDate!: string; // expected format: 'YYYY-MM-DD' or ISO
   @Input() endDate!: string;   // can be 'Present' or 'YYYY-MM-DD'
+  @Input() techStack: string[] = []; // like ['Java', 'Angular', 'Docker']
 
   duration!: string;
 
@@ -56,9 +57,9 @@ export class ExperienceCardComponent implements OnInit {
 
   formatDuration({ years, months, days }: { years: number, months: number, days: number }): string {
     const parts = [];
-    if (years > 0) parts.push(`${years} ${years === 1 ? 'ano' : 'anos'}`);
-    if (months > 0) parts.push(`${months} ${months === 1 ? 'mês' : 'meses'}`);
-    if (days > 0 && parts.length === 0) parts.push(`${days} dia${days > 1 ? 's' : ''}`);
+    if (years > 0) parts.push(`${years} ${years === 1 ? 'year' : 'years'}`);
+    if (months > 0) parts.push(`${months} ${months === 1 ? 'month' : 'moths'}`);
+    if (days > 0 && parts.length === 0) parts.push(`${days} day${days > 1 ? 's' : ''}`);
     return parts.join(', ');
   }
 }

@@ -5,13 +5,18 @@
         <!-- Icon -->
         <div class="icon-box me-3">
           <i class="{{ icon }}"></i>
-        </div>
+        </div>       
   
         <!-- Text content -->
         <div>
           <h5 class="fw-bold mb-3">{{ role }}</h5>
           <h6 class="fw-semibold">{{ company }}</h6>
           <p class="text-secondary-white mb-3">{{ description }}</p>
+          <div class="tech-stack mt-1 mb-3">
+            <span class="tech-pill" *ngFor="let tech of techStack">
+              {{ tech }}
+            </span>
+          </div> 
           <div class="location d-flex align-items-center">
             <img [src]="flagSrc" alt="flag" class="flag me-2">
             <span>{{ location }}</span>

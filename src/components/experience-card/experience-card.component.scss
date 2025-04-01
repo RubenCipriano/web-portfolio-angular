@@ -34,3 +34,26 @@
 .experience-card:hover {
   border: 1px solid #434343;
 }
+
+.tech-stack {
+  .tech-pill {
+    margin: 0px 2px;
+    border: 1px solid var(--treciary-color-white);
+    background-color: var(--primary-color);
+    color: var(--treciary-color-white);
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 0.45rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+    cursor: default;
+
+    &:hover {
+      background-color: var(--primary-color);
+    }
+  }
+}

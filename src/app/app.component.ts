@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { TechCardComponent } from '../components/tech-card/tech-card.component';
 import { CommonModule } from '@angular/common';
-import { ExperienceCardComponent } from '../components/experience-card/experience-card.component';
 import { ExperienceService } from './services/experience.service';
 import { Experience } from './models/experience.model';
+import { TechCardComponent } from './components/tech-card/tech-card.component';
+import { ExperienceCardComponent } from './components/experience-card/experience-card.component';
 
 @Component({
   selector: 'app-root',

@@ -51,9 +51,12 @@
     white-space: nowrap;
     transition: background-color 0.3s ease;
     cursor: default;
+    transition: 1s all;
 
     &:hover {
       background-color: var(--primary-color);
+      margin: 0px 15px;
+      transform: scale(1.3);
     }
   }
 }

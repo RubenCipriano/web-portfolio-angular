@@ -1,9 +1,34 @@
 [
+  {
+      "role": "Full stack Developer",
+      "company": "Accenture",
+      "startDate": "2025-06-10",
+      "endDate": "Present",
+      "location": "Lisboa, Portugal",
+      "workType": "Hybrid",
+      "icon": "fa-solid fa-code",
+      "flagSrc": "https://flagcdn.com/24x18/pt.png",
+      "description": "Working as a software developer consultant to the client \"IRN\" in Oriente, Lisbon",
+      "techStack": [
+        "C#",
+        "React",
+        "Git",
+        "HTML",
+        "CSS",
+        "CI/CD",
+        "SQL Server",
+        "Argo",
+        "Podman",
+        "Restful APIs",
+        "NEXT JS",
+        "TailWind"
+      ]
+    },
     {
       "role": "Full stack Developer",
       "company": "Neotalent Conclusion",
       "startDate": "2024-06-01",
-      "endDate": "Present",
+      "endDate": "2025-06-19",
       "location": "Lisboa, Portugal",
       "workType": "Hybrid",
       "icon": "fa-solid fa-briefcase",

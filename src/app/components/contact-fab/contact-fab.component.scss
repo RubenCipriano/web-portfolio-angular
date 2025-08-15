@@ -1,0 +1,73 @@
+$size-lg: 40px;
+$size-sm: 38px;
+$font-size-lg: 18px;
+$font-size-sm: 16px;
+
+$brand-linkedin: #0a66c2;
+$brand-github: #333;
+$brand-email: #d44638;
+$brand-phone: #25d366;
+
+@mixin circle($s) {
+  width: $s; height: $s;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+}
+
+.fab-wrap {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1000;
+  padding-right: env(safe-area-inset-right, 0);
+}
+
+.fab.main {
+  @include circle($size-lg);
+  background: #444;
+  color: #fff;
+  font-size: $font-size-lg;
+  box-shadow: 0 8px 18px rgba(0,0,0,.35);
+  transition: transform .2s ease;
+
+  &:hover { transform: scale(1.06); }
+  &:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+}
+
+/* The column that grows upward above the FAB */
+.menu {
+  position: absolute;
+  right: 0;
+  bottom: calc(#{$size-lg} + 10px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden; // enables height animation
+}
+
+.contact-btn {
+  @include circle($size-lg);
+  color: #fff;
+  font-size: $font-size-lg;
+  box-shadow: 0 6px 14px rgba(0,0,0,.28);
+  transition: transform .18s ease, box-shadow .18s ease;
+
+  &:hover { transform: translateY(-2px); box-shadow: 0 10px 18px rgba(0,0,0,.32); }
+  &.linkedin { background: $brand-linkedin; }
+  &.github   { background: $brand-github; }
+  &.email    { background: $brand-email; }
+  &.phone    { background: $brand-phone; }
+}
+
+/* Compact at < 992px */
+@media (max-width: 991.98px) {
+  .fab.main { @include circle($size-sm); font-size: $font-size-sm; }
+  .menu     { bottom: calc(#{$size-sm} + 8px); gap: 8px; }
+  .contact-btn { @include circle(38px); font-size: $font-size-sm; }
+}
+
+/* Motion safe */
+@media (prefers-reduced-motion: reduce) {
+  .contact-btn, .fab.main { transition: none; }
+}

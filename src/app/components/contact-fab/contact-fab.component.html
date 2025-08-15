@@ -1,0 +1,31 @@
+<!-- Floating container -->
+<div class="fab-wrap">
+  <!-- The main FAB is a real link -->
+  <a
+    class="fab main"
+    [href]="primaryHref"
+    (click)="onFabClick($event)"
+    [attr.aria-expanded]="show"
+    aria-label="Contact"
+  >
+    <!-- Icon changes depending on menu state -->
+    <i *ngIf="!show" class="fas fa-bars"></i>     <!-- Menu icon when closed -->
+    <i *ngIf="show" class="fas fa-times"></i>     <!-- Close icon when open -->
+  </a>
+
+  <!-- Expanding menu -->
+  <div class="menu" *ngIf="show" @fabMenu>
+    <a href="https://www.linkedin.com/in/rúben-cipriano-109508197/" class="contact-btn linkedin" target="_blank" aria-label="LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://github.com/RubenCipriano" class="contact-btn github" target="_blank" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="mailto:rubencipriano13@gmail.com.com" class="contact-btn email" aria-label="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="tel:+351962860039" class="contact-btn phone" aria-label="Phone">
+      <i class="fas fa-phone-alt"></i>
+    </a>
+  </div>
+</div>

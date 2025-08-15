@@ -4,10 +4,14 @@ import { ExperienceService } from './services/experience.service';
 import { Experience } from './models/experience.model';
 import { TechCardComponent } from './components/tech-card/tech-card.component';
 import { ExperienceCardComponent } from './components/experience-card/experience-card.component';
+import {
+  trigger, transition, style, animate, query, stagger
+} from '@angular/animations';
+import { ContactFabComponent } from './components/contact-fab/contact-fab.component';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, TechCardComponent, ExperienceCardComponent],
+  imports: [CommonModule, TechCardComponent, ExperienceCardComponent, ContactFabComponent],
   providers: [ExperienceService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -16,6 +20,12 @@ export class AppComponent implements OnInit {
   title = 'portfolio-web';
 
   experiences?: Experience[];
+
+  showContacts = true;
+
+  toggleContacts() {
+    this.showContacts = !this.showContacts;
+  }
 
   constructor(private experienceService: ExperienceService) {
 

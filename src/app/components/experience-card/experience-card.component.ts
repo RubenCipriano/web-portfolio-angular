@@ -58,8 +58,8 @@ export class ExperienceCardComponent implements OnInit {
   formatDuration({ years, months, days }: { years: number, months: number, days: number }): string {
     const parts = [];
     if (years > 0) parts.push(`${years} ${years === 1 ? 'year' : 'years'}`);
-    if (months > 0) parts.push(`${months} ${months === 1 ? 'month' : 'moths'}`);
+    if (months > 0) parts.push(`${months} ${months === 1 ? 'month' : 'months'}`);
     if (days > 0 && parts.length === 0) parts.push(`${days} day${days > 1 ? 's' : ''}`);
-    return parts.join(', ');
+    return parts.join(' & ');
   }
 }

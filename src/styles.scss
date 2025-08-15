@@ -38,11 +38,22 @@ h5 {
     margin-top: 10em;
 }
 
+.gradient-background {
+    background: linear-gradient(
+        135deg, 
+        var(--primary-color) 0%,
+        var(--primary-color-darker) 50%,
+        var(--primary-color) 100%
+    );
+    position: relative;
+}
+
+
 :root {
-    --primary-color-lighter: rgb(0, 140, 255);
-    --primary-color: rgb(11, 0, 40);
-    --primary-color-darker: rgb(0, 6, 31);
-    --primary-color-white: #fff;
-    --secundary-color-white: #3d3d3d;
-    --treciary-color-white: #a8a8a8;
+  --primary-color-lighter: rgb(0, 140, 255);
+  --primary-color: rgb(0, 0, 50);
+  --primary-color-darker: rgb(0, 0, 30);
+  --primary-color-white: #fff;
+  --secundary-color-white: #3d3d3d;
+  --treciary-color-white: #a8a8a8;
 }

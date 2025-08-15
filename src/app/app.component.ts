@@ -21,11 +21,7 @@ export class AppComponent implements OnInit {
 
   experiences?: Experience[];
 
-  showContacts = true;
-
-  toggleContacts() {
-    this.showContacts = !this.showContacts;
-  }
+  currentYear = new Date().getFullYear()
 
   constructor(private experienceService: ExperienceService) {
 

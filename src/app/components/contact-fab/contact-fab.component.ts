@@ -14,10 +14,9 @@ import { CommonModule } from '@angular/common';
     // Container grows from button upward; items cascade up/down
     trigger('fabMenu', [
       transition(':enter', [
-        style({ height: 0, opacity: 0 }),
-        animate('220ms ease-out', style({ height: '*', opacity: 1 })),
         query('.contact-btn', [
           style({ transform: 'translateY(8px)', opacity: 0 }),
+          stagger(60, animate('180ms ease-out', style({ transform: 'translateY(0)', opacity: 1 })))
         ])
       ]),
       transition(':leave', [

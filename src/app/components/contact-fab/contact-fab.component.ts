@@ -1,49 +1,101 @@
-// contact-fab.component.ts
-import { Component } from '@angular/core';
-import {
-  trigger, transition, style, animate, query, stagger
-} from '@angular/animations';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, NgZone } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { fromEvent, Subscription } from 'rxjs';
+import { auditTime } from 'rxjs/operators';
+
+type Item = {
+  href: string; icon: string; label: string;
+  class: 'linkedin' | 'github' | 'email' | 'phone';
+  newTab?: boolean;
+  transform?: string;
+};
 
 @Component({
   selector: 'app-contact-fab',
-  templateUrl: './contact-fab.component.html',
-  styleUrls: ['./contact-fab.component.scss'],
+  standalone: true,
   imports: [CommonModule],
-  animations: [
-    // Container grows from button upward; items cascade up/down
-    trigger('fabMenu', [
-      transition(':enter', [
-        query('.contact-btn', [
-          style({ transform: 'translateY(8px)', opacity: 0 }),
-          stagger(60, animate('180ms ease-out', style({ transform: 'translateY(0)', opacity: 1 })))
-        ])
-      ]),
-      transition(':leave', [
-        // hide items first from top to bottom (reverse stagger)
-        query('.contact-btn', [
-          stagger(-60, animate('140ms ease-in', style({ transform: 'translateY(-8px)', opacity: 0 })))
-        ], { optional: true }),
-        animate('180ms ease-in', style({ height: 0, opacity: 0 }))
-      ])
-    ])
-  ]
+  templateUrl: './contact-fab.component.html',
+  styleUrls: ['./contact-fab.component.scss']
 })
-export class ContactFabComponent {
+export class ContactFabComponent implements OnInit, OnDestroy {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private zone: NgZone) {}
+
   show = false;
-
-  // make the FAB itself a contact link (choose your favourite)
   primaryHref = 'mailto:ruben@example.com';
-  // e.g. WhatsApp: 'https://wa.me/351912345678'
 
-  onFabClick(event: MouseEvent) {
-    // Ctrl/Cmd/middle-click should open the link normally
-    const isOpenInNewTab = event.ctrlKey || event.metaKey || event.button === 1;
-    if (!isOpenInNewTab) {
-      event.preventDefault(); // toggle instead of navigating
-      this.show = !this.show;
+  items: Item[] = [
+    { href: 'https://www.linkedin.com/in/rúben-cipriano-109508197/', icon: 'fab fa-linkedin-in', label: 'LinkedIn', class: 'linkedin', newTab: true },
+    { href: 'https://github.com/RubenCipriano', icon: 'fab fa-github', label: 'GitHub', class: 'github', newTab: true },
+    { href: 'mailto:rubencipriano13@gmail.com', icon: 'fas fa-envelope', label: 'Email', class: 'email' },
+    { href: 'tel:+351962860039', icon: 'fas fa-phone-alt', label: 'Phone', class: 'phone' }
+  ];
+
+  private resizeSub?: Subscription;
+
+  ngOnInit() {
+    // 1) SSR-safe first paint (no window): deterministic radius
+    this.computeTransforms({ radius: 96 });
+
+    // 2) Browser-only: recompute responsively + attach resize listener
+    if (isPlatformBrowser(this.platformId)) {
+      this.zone.runOutsideAngular(() => {
+        const compute = () => {
+          const isNarrow = typeof window !== 'undefined'
+            ? window.matchMedia('(max-width: 992px)').matches
+            : false;
+          const radius = isNarrow ? 50 : 50;
+          this.computeTransforms({ radius });
+        };
+
+        compute(); // after hydration
+
+        this.resizeSub = fromEvent(window, 'resize')
+          .pipe(auditTime(150))
+          .subscribe(() => compute());
+      });
     }
   }
 
+  ngOnDestroy() {
+    this.resizeSub?.unsubscribe();
+  }
+
+  onFabClick(event: MouseEvent) {
+    const newTab = event.ctrlKey || event.metaKey || event.button === 1;
+    if (!newTab) {
+      event.preventDefault();
+      this.show = !this.show;
+    }
+  }
   close() { this.show = false; }
+
+  // --- Helper you specified: returns [0, 60, 120, 180] for 4 items ---
+  private spacedAngles(n: number, start = 0, end = 180): number[] {
+    return Array.from({ length: n }, (_, i) =>
+      start + (i * (end - start)) / (n - 1)
+    );
+  }
+
+  /**
+   * Places items on a left-side semicircle using angles 0..180:
+   * 0° = directly above the FAB center
+   * 90° = directly left
+   * 180° = directly below
+   * This makes 1st item on top of the X, last item at the bottom of the close button.
+   */
+  private computeTransforms(opts: { radius: number }) {
+    const { radius } = opts;
+    const n = this.items.length;
+    const angles = this.spacedAngles(n, 0, 180); // e.g., [0, 60, 120, 180]
+
+    for (let i = 0; i < n; i++) {
+      const a = (angles[i] * Math.PI) / 180; // radians, where 0 is "up"
+      // Left semicircle about the FAB center:
+      // x: negative = left, y: positive = down (CSS coordinates)
+      const x = -radius * Math.sin(a);
+      const y = -radius * Math.cos(a);
+
+      this.items[i].transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
+    }
+  }
 }

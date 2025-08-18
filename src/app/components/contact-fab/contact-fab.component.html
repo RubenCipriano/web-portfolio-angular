@@ -8,24 +8,25 @@
     [attr.aria-expanded]="show"
     aria-label="Contact"
   >
-    <!-- Icon changes depending on menu state -->
-    <i *ngIf="!show" class="fas fa-bars"></i>     <!-- Menu icon when closed -->
-    <i *ngIf="show" class="fas fa-times"></i>     <!-- Close icon when open -->
+    <i *ngIf="!show" class="fas fa-bars"></i>
+    <i *ngIf="show" class="fas fa-times"></i>
   </a>
 
-  <!-- Expanding menu -->
-  <div class="menu" *ngIf="show" @fabMenu>
-    <a href="https://www.linkedin.com/in/rúben-cipriano-109508197/" class="contact-btn linkedin" target="_blank" aria-label="LinkedIn">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a href="https://github.com/RubenCipriano" class="contact-btn github" target="_blank" aria-label="GitHub">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="mailto:rubencipriano13@gmail.com.com" class="contact-btn email" aria-label="Email">
-      <i class="fas fa-envelope"></i>
-    </a>
-    <a href="tel:+351962860039" class="contact-btn phone" aria-label="Phone">
-      <i class="fas fa-phone-alt"></i>
+  <!-- Radial menu: origin sits on top of the main FAB center -->
+  <div class="menu radial" *ngIf="true">
+    <a
+      *ngFor="let item of items; let i = index"
+      class="contact-btn"
+      [ngClass]="item.class"
+      [href]="item.href"
+      [attr.target]="item.newTab ? '_blank' : null"
+      [attr.aria-label]="item.label"
+      [style.transform]="show ? item.transform : 'translate(0,0) scale(0.9)'"
+      [style.opacity]="show ? 1 : 0"
+      [style.transitionDelay.ms]="show ? i * 50 : (items.length - 1 - i) * 40"
+      (click)="$event.stopPropagation()"
+    >
+      <i [class]="item.icon"></i>
     </a>
   </div>
 </div>

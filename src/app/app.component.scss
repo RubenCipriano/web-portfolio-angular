@@ -1,19 +1,17 @@
 .custom-button {
-    padding: 15px 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    border-radius: 15px;
-    transition: background-color 0.3s ease;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+  border: 1px solid var(--primary-color-darker);
+  background-color: rgba(0,0,0,0.1)
 }
 
 .custom-button:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* or a consistent hover color */
-}
-
-.bg-dark-transparent {
-    background-color: var(--primary-color-darker, rgba(0,0,0,0.3)); /* fallback in case variable missing */
+  background-color: rgba(255, 255, 255, 0.05); /* or a consistent hover color */
 }
 
 .text-white {
@@ -25,11 +23,11 @@ p {
 }
 
 .align-middle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
 }
 
 .bg-dark-transparent {
@@ -42,90 +40,4 @@ p {
 
 .color-primary {
     color: var(--primary-color-lighter);
-}
-
-
-// contact-links.scss
-
-// -------------------------------------
-// Config
-// -------------------------------------
-$contact-size-lg: 40px;
-$contact-size-sm: 34px;
-$contact-gap-lg: 12px;
-$contact-gap-sm: 10px;
-$brand-linkedin: #0a66c2;
-$brand-github: #333333;
-$brand-email: #d44638;
-$brand-phone: #25d366;
-
-// Reusable circle button
-@mixin circle-btn($size) {
-  width: $size;
-  height: $size;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-// -------------------------------------
-// Layout
-// -------------------------------------
-.contact-links {
-  position: fixed;
-  right: 15px; // keep off the edge
-  bottom: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: $contact-gap-lg;
-  z-index: 1000;
-  padding-right: env(safe-area-inset-right, 0);
-  width: auto;
-}
-
-.contact-btn {
-  @include circle-btn($contact-size-lg);
-  font-size: 20px;
-  color: #fff;
-  background-color: #222;
-  text-decoration: none;
-  transition: transform .2s ease, box-shadow .2s ease;
-
-  &:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 10px rgba(0,0,0,.3);
-  }
-  &:focus-visible {
-    outline: 2px solid rgba(255,255,255,.8);
-    outline-offset: 2px;
-  }
-
-  &.linkedin { background-color: $brand-linkedin; }
-  &.github   { background-color: $brand-github; }
-  &.email    { background-color: $brand-email; }
-  &.phone    { background-color: $brand-phone; }
-}
-
-// -------------------------------------
-// Compact at < 992px
-// (Bootstrap's md/lg breakpoint)
-// -------------------------------------
-@media (max-width: 1199.98px) {
-  .contact-links {
-    right: 12px;
-    gap: $contact-gap-sm;
-  }
-  .contact-btn {
-    @include circle-btn($contact-size-sm);
-    font-size: 14px; // icon size
-  }
-}
-
-// Optional: respect reduced motion
-@media (prefers-reduced-motion: reduce) {
-  .contact-btn {
-    transition: none;
-    &:hover { transform: none; box-shadow: none; }
-  }
 }

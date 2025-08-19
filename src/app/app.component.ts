@@ -8,10 +8,11 @@ import {
   trigger, transition, style, animate, query, stagger
 } from '@angular/animations';
 import { ContactFabComponent } from './components/contact-fab/contact-fab.component';
+import { ScrollTopButtonComponent } from './components/scroll-top/scroll-top.component';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, TechCardComponent, ExperienceCardComponent, ContactFabComponent],
+  imports: [CommonModule, TechCardComponent, ExperienceCardComponent, ContactFabComponent, ScrollTopButtonComponent],
   providers: [ExperienceService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

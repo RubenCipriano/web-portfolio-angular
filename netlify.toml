@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build ^^ npm run build:server && npm run prerender || true"
+  command = "npm run build && npm run build:server && npm run prerender"
   publish = "dist/portfolio-web/browser"
 
 [context.production.environment]

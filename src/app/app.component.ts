@@ -1,31 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faChevronRight, faDownload, faEnvelope, faPhoneAlt, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { ExperienceService } from './services/experience.service';
 import { Experience } from './models/experience.model';
 import { TechCardComponent } from './components/tech-card/tech-card.component';
 import { ExperienceCardComponent } from './components/experience-card/experience-card.component';
-import {
-  trigger, transition, style, animate, query, stagger
-} from '@angular/animations';
-import { ContactFabComponent } from './components/contact-fab/contact-fab.component';
 import { ScrollTopButtonComponent } from './components/scroll-top/scroll-top.component';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, TechCardComponent, ExperienceCardComponent, ContactFabComponent, ScrollTopButtonComponent],
+  imports: [CommonModule, TechCardComponent, ExperienceCardComponent, ScrollTopButtonComponent, FontAwesomeModule],
   providers: [ExperienceService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   title = 'portfolio-web';
-
   experiences?: Experience[];
+  currentYear = new Date().getFullYear();
 
-  currentYear = new Date().getFullYear()
-
-  constructor(private experienceService: ExperienceService) {
-
+  constructor(private experienceService: ExperienceService, library: FaIconLibrary) {
+    library.addIcons(faChevronRight, faDownload, faEnvelope, faPhoneAlt, faMapMarkerAlt, faLinkedinIn, faGithub);
   }
 
   techCards = [
@@ -77,14 +74,13 @@ export class AppComponent implements OnInit {
       image: 'assets/bootstrap_logo.svg',
       bgColorClass: 'bg-purple-dark'
     },
-  ];  
+  ];
 
   ngOnInit(): void {
     this.experienceService.getExperiences().subscribe({
       next: (data) => {
         this.experiences = data;
       }
-    })
+    });
   }
-  
 }

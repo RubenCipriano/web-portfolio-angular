@@ -8,8 +8,8 @@
     [attr.aria-expanded]="show"
     aria-label="Contact"
   >
-    <i *ngIf="!show" class="fas fa-bars"></i>
-    <i *ngIf="show" class="fas fa-times"></i>
+    <fa-icon *ngIf="!show" [icon]="['fas', 'bars']"></fa-icon>
+    <fa-icon *ngIf="show" [icon]="['fas', 'times']"></fa-icon>
   </a>
 
   <!-- Radial menu: origin sits on top of the main FAB center -->
@@ -26,7 +26,7 @@
       [style.transitionDelay.ms]="show ? i * 50 : (items.length - 1 - i) * 40"
       (click)="$event.stopPropagation()"
     >
-      <i [class]="item.icon"></i>
+      <fa-icon [icon]="item.icon"></fa-icon>
     </a>
   </div>
 </div>

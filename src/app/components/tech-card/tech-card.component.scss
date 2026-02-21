@@ -20,6 +20,7 @@
 
 .image-container {
   height: 100%;
+  display: flex;
 }
 
 .custom-card:hover {
@@ -27,11 +28,11 @@
 }
 
 .image-responsive {
-    padding: 10px;
     border-radius: 10px;
     max-height: 100%;
     height: 100%;
     width: 100%;
+    padding: 10px;
     aspect-ratio: 1 / 1;
     object-fit: contain;
 }

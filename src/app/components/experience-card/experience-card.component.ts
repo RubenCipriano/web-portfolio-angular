@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faBriefcase, faCode, faCog, faDatabase, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-experience-card',
   standalone: true,
   templateUrl: './experience-card.component.html',
   styleUrls: ['./experience-card.component.scss'],
-  imports: [CommonModule]
+  imports: [CommonModule, FontAwesomeModule]
 })
 export class ExperienceCardComponent implements OnInit {
   @Input() role!: string;
@@ -20,9 +22,29 @@ export class ExperienceCardComponent implements OnInit {
   @Input() techStack: string[] = []; // like ['Java', 'Angular', 'Docker']
 
   duration!: string;
+  iconArray: [string, string] = ['fas', 'briefcase'];
+
+  constructor(library: FaIconLibrary) {
+    // Add all solid icons used in experience data
+    library.addIcons(faBriefcase, faCode, faCog, faDatabase, faLaptopCode);
+  }
 
   ngOnInit(): void {
     this.calculateDuration();
+    // Convert icon string (e.g., 'fa-solid fa-code') to array format ['fas', 'code']
+    if (this.icon) {
+      const parts = this.icon.split(' ');
+      if (parts.length === 2) {
+        let prefix = parts[0].replace('fa-', '');
+        const name = parts[1].replace('fa-', '');
+        
+        // Map CSS class prefixes to FontAwesome library prefixes
+        if (prefix === 'solid') prefix = 'fas';
+        if (prefix === 'brands') prefix = 'fab';
+        
+        this.iconArray = [prefix as any, name];
+      }
+    }
   }
 
   calculateDuration(): void {

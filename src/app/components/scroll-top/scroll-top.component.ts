@@ -5,11 +5,13 @@ import {
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { fromEvent, Subscription } from 'rxjs';
 import { auditTime } from 'rxjs/operators';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-scroll-top-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FontAwesomeModule],
   template: `
     <a
       class="scroll-top"
@@ -18,7 +20,7 @@ import { auditTime } from 'rxjs/operators';
       aria-label="Back to top"
       (click)="onClick($event)"
     >
-      <i class="fas fa-arrow-up"></i>
+      <fa-icon [icon]="['fas', 'arrow-up']"></fa-icon>
     </a>
   `,
   styles: [`
@@ -59,8 +61,9 @@ export class ScrollTopButtonComponent implements AfterViewInit, OnDestroy {
   private resizeSub?: Subscription;
   private threshold = 0; // computed from checkId element height (or fallback)
 
-  constructor(@Inject(PLATFORM_ID) platformId: Object, private zone: NgZone) {
+  constructor(@Inject(PLATFORM_ID) platformId: Object, private zone: NgZone, library: FaIconLibrary) {
     this.isBrowser = isPlatformBrowser(platformId);
+    library.addIcons(faArrowUp);
   }
 
   ngAfterViewInit() {

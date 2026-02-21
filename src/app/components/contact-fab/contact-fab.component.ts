@@ -2,9 +2,12 @@ import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, NgZone } from '@angu
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { fromEvent, Subscription } from 'rxjs';
 import { auditTime } from 'rxjs/operators';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faBars, faTimes, faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 type Item = {
-  href: string; icon: string; label: string;
+  href: string; icon: [string, string]; label: string;
   class: 'linkedin' | 'github' | 'email' | 'phone';
   newTab?: boolean;
   transform?: string;
@@ -13,21 +16,23 @@ type Item = {
 @Component({
   selector: 'app-contact-fab',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FontAwesomeModule],
   templateUrl: './contact-fab.component.html',
   styleUrls: ['./contact-fab.component.scss']
 })
 export class ContactFabComponent implements OnInit, OnDestroy {
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private zone: NgZone) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private zone: NgZone, library: FaIconLibrary) {
+    library.addIcons(faBars, faTimes, faEnvelope, faPhoneAlt, faLinkedinIn, faGithub);
+  }
 
   show = false;
   primaryHref = 'mailto:ruben@example.com';
 
   items: Item[] = [
-    { href: 'https://www.linkedin.com/in/rúben-cipriano-109508197/', icon: 'fab fa-linkedin-in', label: 'LinkedIn', class: 'linkedin', newTab: true },
-    { href: 'https://github.com/RubenCipriano', icon: 'fab fa-github', label: 'GitHub', class: 'github', newTab: true },
-    { href: 'mailto:rubencipriano13@gmail.com', icon: 'fas fa-envelope', label: 'Email', class: 'email' },
-    { href: 'tel:+351962860039', icon: 'fas fa-phone-alt', label: 'Phone', class: 'phone' }
+    { href: 'https://www.linkedin.com/in/rúben-cipriano-109508197/', icon: ['fab', 'linkedin-in'], label: 'LinkedIn', class: 'linkedin', newTab: true },
+    { href: 'https://github.com/RubenCipriano', icon: ['fab', 'github'], label: 'GitHub', class: 'github', newTab: true },
+    { href: 'mailto:rubencipriano13@gmail.com', icon: ['fas', 'envelope'], label: 'Email', class: 'email' },
+    { href: 'tel:+351962860039', icon: ['fas', 'phone-alt'], label: 'Phone', class: 'phone' }
   ];
 
   private resizeSub?: Subscription;

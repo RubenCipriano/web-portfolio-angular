@@ -16,7 +16,7 @@
       <a class="col-sm-9 col-lg-3 custom-button bg-dark-transparent text-white mt-3" href="#work-experience">
         <div class="d-flex align-items-center gap-2">
           <p class="mb-0">See my experience</p>
-          <i class="fa-solid fa-chevron-right"></i>
+          <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon>
         </div>
       </a>
     
@@ -25,7 +25,7 @@
          href="assets/files/cv.pdf"
          download="cv.pdf">
         <div class="d-flex align-items-center gap-2">
-          <i class="fa-solid fa-download"></i>
+          <fa-icon [icon]="['fas', 'download']"></fa-icon>
           <p class="mb-0">Download CV</p>
         </div>
       </a>
@@ -35,7 +35,7 @@
 
 <section id="skillset"></section>
 
-<div data-aos="fade-up" class="container text-white mt-20 mb-5">
+<div data-aos="fade-up" class="container text-white mt-20 mb-5 p-0">
   <div class="row">
     <div class="col-lg-8 col-sm-12">
       <h2>Skillset</h2>
@@ -120,15 +120,15 @@
         <h5 class="fw-bold mb-3">Contact</h5>
         <ul class="list-unstyled mb-0">
           <li class="mb-2">
-            <i class="fas fa-envelope me-2"></i>
+            <fa-icon [icon]="['fas', 'envelope']" class="me-2"></fa-icon>
             <a href="mailto:rubencipriano13@gmail.com" class="text-white text-decoration-none">rubencipriano13&#64;gmail.com</a>
           </li>
           <li class="mb-2">
-            <i class="fas fa-phone-alt me-2"></i>
+            <fa-icon [icon]="['fas', 'phone-alt']" class="me-2"></fa-icon>
             <a href="tel:+351962860039" class="text-white text-decoration-none">+351 962 860 039</a>
           </li>
           <li class="mb-2">
-            <i class="fas fa-map-marker-alt me-2"></i> Portugal
+            <fa-icon [icon]="['fas', 'map-marker-alt']" class="me-2"></fa-icon> Portugal
           </li>
         </ul>
       </div>
@@ -138,10 +138,10 @@
         <h5 class="fw-bold mb-3">Follow Me</h5>
         <div class="d-flex gap-3">
           <a href="https://www.linkedin.com/in/rúben-cipriano-109508197/" target="_blank" class="text-white fs-4">
-            <i class="fab fa-linkedin-in"></i>
+            <fa-icon [icon]="['fab', 'linkedin-in']"></fa-icon>
           </a>
           <a href="https://github.com/RubenCipriano" target="_blank" class="text-white fs-4">
-            <i class="fab fa-github"></i>
+            <fa-icon [icon]="['fab', 'github']"></fa-icon>
           </a>
         </div>
       </div>

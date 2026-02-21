@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
     {
       title: 'SQL',
       description: 'Database',
-      image: '/assets/sql_logo.png',
+      image: '/assets/sql_logo.svg',
       bgColorClass: 'bg-white-dark'
     },
     {

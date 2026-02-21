@@ -1,96 +1,98 @@
-<section id="home"></section>
+<main>
+  <section id="home"></section>
 
-<div class="h-100 w-100 row align-middle">
-  <div class="col d-flex flex-column align-items-center justify-content-center">
+  <div class="h-100 w-100 row align-middle">
+    <div class="col d-flex flex-column align-items-center justify-content-center">
+      <div class="row">
+        <h5 class="text-secondary-white">BASED IN PORTUGAL</h5>
+      </div>
+      <div class="row w-80">
+        <h1 class="text-white text-center">Quality <span class="color-primary">Development <br />  Design</span> of Web Applications</h1>
+      </div>
+      <div class="row mt-4">
+        <h6 class="text-secondary-white text-center">Hi, I'm Ruben Cipriano. A software developer looking always to learn new tech</h6>
+      </div>
+      <div class="row w-100 mt-4 justify-content-center gap-4">
+        <!-- Experience Button -->
+        <a class="col-sm-9 col-lg-3 custom-button bg-dark-transparent text-white mt-3" href="#work-experience">
+          <div class="d-flex align-items-center gap-2">
+            <p class="mb-0">See my experience</p>
+            <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon>
+          </div>
+        </a>
+      
+        <!-- Download CV Button -->
+        <a class="col-sm-9 col-lg-3 custom-button text-white mt-3" 
+          href="assets/files/cv.pdf"
+          download="cv.pdf">
+          <div class="d-flex align-items-center gap-2">
+            <fa-icon [icon]="['fas', 'download']"></fa-icon>
+            <p class="mb-0">Download CV</p>
+          </div>
+        </a>
+      </div>    
+    </div>
+  </div>
+
+  <section id="skillset"></section>
+
+  <div data-aos="fade-up" class="container text-white mt-20 mb-5 p-0">
     <div class="row">
-      <h5 class="text-secondary-white">BASED IN PORTUGAL</h5>
+      <div class="col-lg-8 col-sm-12">
+        <h2>Skillset</h2>
+      </div>
     </div>
-    <div class="row w-80">
-      <h1 class="text-white text-center">Quality <span class="color-primary">Development <br />  Design</span> of Web Applications</h1>
-    </div>
-    <div class="row mt-4">
-      <h6 class="text-secondary-white text-center">Hi, I'm Ruben Cipriano. A software developer looking always to learn new tech</h6>
-    </div>
-    <div class="row w-100 mt-4 justify-content-center gap-3">
-      <!-- Experience Button -->
-      <a class="col-sm-9 col-lg-3 custom-button bg-dark-transparent text-white mt-3" href="#work-experience">
-        <div class="d-flex align-items-center gap-2">
-          <p class="mb-0">See my experience</p>
-          <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon>
-        </div>
-      </a>
-    
-      <!-- Download CV Button -->
-      <a class="col-sm-9 col-lg-3 custom-button text-white mt-3" 
-         href="assets/files/cv.pdf"
-         download="cv.pdf">
-        <div class="d-flex align-items-center gap-2">
-          <fa-icon [icon]="['fas', 'download']"></fa-icon>
-          <p class="mb-0">Download CV</p>
-        </div>
-      </a>
-    </div>    
-  </div>
-</div>
-
-<section id="skillset"></section>
-
-<div data-aos="fade-up" class="container text-white mt-20 mb-5 p-0">
-  <div class="row">
-    <div class="col-lg-8 col-sm-12">
-      <h2>Skillset</h2>
+    <div class="row">
+      <div class="col-lg-8 col-sm-12">
+        <p class="text-secondary-white">This is the current stack that I'm most familiar with with the latest and older version contact me for more information, being using them as a full stack and front end developer for multiple companies</p>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-8 col-sm-12">
-      <p class="text-secondary-white">This is the current stack that I'm most familiar with with the latest and older version contact me for more information, being using them as a full stack and front end developer for multiple companies</p>
+
+  <div data-aos="fade-up" class="container mb-5">
+    <div class="row">
+      <div class="col-lg-3 col-md-6" *ngFor="let tech of techCards">
+        <app-tech-card
+          [title]="tech.title"
+          [description]="tech.description"
+          [image]="tech.image"
+          [bgColorClass]="tech.bgColorClass">
+        </app-tech-card>
+      </div>
     </div>
   </div>
-</div>
 
-<div data-aos="fade-up" class="container mb-5">
-  <div class="row">
-    <div class="col-lg-3 col-md-6" *ngFor="let tech of techCards">
-      <app-tech-card
-        [title]="tech.title"
-        [description]="tech.description"
-        [image]="tech.image"
-        [bgColorClass]="tech.bgColorClass">
-      </app-tech-card>
+  <section id="work-experience"></section>
+
+  <div data-aos="fade-up" class="container text-white mt-20 mb-5">
+    <div class="row">
+      <div class="col-lg-8 col-sm-12">
+        <h2>Working Experience</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-sm-12">
+        <p class="text-secondary-white">This is my working experience during my career that started in 2023</p>
+      </div>
     </div>
   </div>
-</div>
 
-<section id="work-experience"></section>
-
-<div data-aos="fade-up" class="container text-white mt-20 mb-5">
-  <div class="row">
-    <div class="col-lg-8 col-sm-12">
-      <h2>Working Experience</h2>
-    </div>
+  <div class="container">
+    <app-experience-card
+      data-aos="fade-up"
+      *ngFor="let exp of experiences"
+      [role]="exp.role"
+      [company]="exp.company"
+      [description]="exp.description"
+      [location]="exp.location + ' - ' + exp.workType"
+      [flagSrc]="exp.flagSrc"
+      [icon]="exp.icon"
+      [startDate]="exp.startDate"
+      [endDate]="exp.endDate"
+      [techStack]="exp.techStack">
+    </app-experience-card>
   </div>
-  <div class="row">
-    <div class="col-lg-8 col-sm-12">
-      <p class="text-secondary-white">This is my working experience during my career that started in 2023</p>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <app-experience-card
-    data-aos="fade-up"
-    *ngFor="let exp of experiences"
-    [role]="exp.role"
-    [company]="exp.company"
-    [description]="exp.description"
-    [location]="exp.location + ' - ' + exp.workType"
-    [flagSrc]="exp.flagSrc"
-    [icon]="exp.icon"
-    [startDate]="exp.startDate"
-    [endDate]="exp.endDate"
-    [techStack]="exp.techStack">
-  </app-experience-card>
-</div>
+</main>
 
 <footer class="text-white pt-5 pb-3 mt-20 gradient-background">
   <div class="container">
@@ -108,10 +110,10 @@
       <div class="col-lg-2 col-md-6">
         <h5 class="fw-bold mb-3">Links</h5>
         <ul class="list-unstyled">
-          <li><a href="#work-experience" class="text-white text-decoration-none">Experience</a></li>
-          <li><a href="#skillset" class="text-white text-decoration-none">Skillset</a></li>
-          <li><a href="#home" class="text-white text-decoration-none">Start</a></li>
-          <li><a href="assets/files/cv.pdf" download class="text-white text-decoration-none">Download CV</a></li>
+          <li class="mb-2"><a href="#work-experience" class="text-white text-decoration-none d-inline-block py-2">Experience</a></li>
+          <li class="mb-2"><a href="#skillset" class="text-white text-decoration-none d-inline-block py-2">Skillset</a></li>
+          <li class="mb-2"><a href="#home" class="text-white text-decoration-none d-inline-block py-2">Start</a></li>
+          <li class="mb-2"><a href="assets/files/cv.pdf" download class="text-white text-decoration-none d-inline-block py-2">Download CV</a></li>
         </ul>
       </div>
 
@@ -119,15 +121,15 @@
       <div class="col-lg-3 col-md-6">
         <h5 class="fw-bold mb-3">Contact</h5>
         <ul class="list-unstyled mb-0">
-          <li class="mb-2">
+          <li class="mb-4">
             <fa-icon [icon]="['fas', 'envelope']" class="me-2"></fa-icon>
             <a href="mailto:rubencipriano13@gmail.com" class="text-white text-decoration-none">rubencipriano13&#64;gmail.com</a>
           </li>
-          <li class="mb-2">
+          <li class="mb-4">
             <fa-icon [icon]="['fas', 'phone-alt']" class="me-2"></fa-icon>
             <a href="tel:+351962860039" class="text-white text-decoration-none">+351 962 860 039</a>
           </li>
-          <li class="mb-2">
+          <li class="mb-4">
             <fa-icon [icon]="['fas', 'map-marker-alt']" class="me-2"></fa-icon> Portugal
           </li>
         </ul>
@@ -137,10 +139,10 @@
       <div class="col-lg-3 col-md-6">
         <h5 class="fw-bold mb-3">Follow Me</h5>
         <div class="d-flex gap-3">
-          <a href="https://www.linkedin.com/in/rúben-cipriano-109508197/" target="_blank" class="text-white fs-4">
+          <a href="https://www.linkedin.com/in/rúben-cipriano-109508197/" target="_blank" aria-label="Visit my LinkedIn profile" class="text-white d-inline-flex align-items-center justify-content-center" style="width: 48px; height: 48px; font-size: 1.5rem;">
             <fa-icon [icon]="['fab', 'linkedin-in']"></fa-icon>
           </a>
-          <a href="https://github.com/RubenCipriano" target="_blank" class="text-white fs-4">
+          <a href="https://github.com/RubenCipriano" target="_blank" aria-label="Visit my GitHub profile" class="text-white d-inline-flex align-items-center justify-content-center" style="width: 48px; height: 48px; font-size: 1.5rem;">
             <fa-icon [icon]="['fab', 'github']"></fa-icon>
           </a>
         </div>

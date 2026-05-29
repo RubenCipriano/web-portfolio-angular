@@ -1,0 +1,33 @@
+# Ruben Cipriano — Software Developer
+
+> Portugal-based software developer building scalable web applications across
+> front-end and back-end, with a focus on React, Next.js, Angular, TypeScript,
+> C# and SQL.
+
+## About
+- Name: Ruben Cipriano
+- Role: Software Developer (full-stack, front-end focused)
+- Location: Portugal
+- Website: https://rubencipriano.top
+- Email: rubencipriano13@gmail.com
+
+## Core skills
+TypeScript, Next.js, React, C# / .NET, SQL Server, Node.js, Git, SCSS, HTML/CSS,
+REST APIs, CI/CD.
+
+## Experience
+- Front-end Developer — Growmate (2025–present), consulting for client IRN, Lisbon
+- Full-stack Developer — Neotalent / VORTAL (2024–2025)
+- Back-end Developer — VIA Consulting (2023–2024)
+- Front-end Developer (Intern) — Emvenci (2022)
+- Front-end Developer (Intern) — Arquiconsult (2020)
+
+## Education
+- CTeSP, Web & Mobile Application Development — ISTEC (2020–2022)
+- Technician in Management & Programming of Computer Systems — INETE (2017–2020)
+
+## Links
+- Portfolio: https://rubencipriano.top
+- GitHub: https://github.com/RubenCipriano
+- LinkedIn: https://www.linkedin.com/in/rúben-cipriano-109508197/
+- CV (PDF): https://rubencipriano.top/assets/files/cv.pdf

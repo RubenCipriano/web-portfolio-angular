@@ -50,23 +50,61 @@
   <link rel="preload" href="/assets/data/experiences.json" as="fetch" crossorigin>
   <link rel="icon" type="image/x-icon" href="favicon.svg">
 
-  <!-- Structured data for search engines -->
+  <!-- Structured data for search engines and AI tools -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Ruben Cipriano",
-    "url": "https://rubencipriano.top",
-    "jobTitle": "Software Developer",
-    "email": "mailto:rubencipriano13@gmail.com",
-    "image": "https://rubencipriano.top/assets/preview-image.png",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "Portugal"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/in/rúben-cipriano-109508197/",
-      "https://github.com/RubenCipriano"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://rubencipriano.top/#website",
+        "url": "https://rubencipriano.top",
+        "name": "Ruben Cipriano - Portfolio",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://rubencipriano.top/#person" }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://rubencipriano.top/#profilepage",
+        "url": "https://rubencipriano.top",
+        "name": "Ruben Cipriano — Software Developer Portfolio",
+        "isPartOf": { "@id": "https://rubencipriano.top/#website" },
+        "about": { "@id": "https://rubencipriano.top/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://rubencipriano.top/#person",
+        "name": "Ruben Cipriano",
+        "url": "https://rubencipriano.top",
+        "jobTitle": "Software Developer",
+        "description": "Portugal-based software developer building scalable web applications across front-end and back-end, focused on React, Next.js, Angular, TypeScript, C# and SQL.",
+        "email": "mailto:rubencipriano13@gmail.com",
+        "image": "https://rubencipriano.top/assets/preview-image.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "Portugal"
+        },
+        "knowsAbout": [
+          "TypeScript", "Next.js", "React", "Angular", "C#", ".NET",
+          "Node.js", "SQL Server", "SCSS", "REST APIs", "CI/CD", "Git"
+        ],
+        "alumniOf": [
+          {
+            "@type": "EducationalOrganization",
+            "name": "ISTEC",
+            "description": "CTeSP — Web & Mobile Application Development (2020–2022)"
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "INETE — Instituto de Educação Técnica",
+            "description": "Technician in Management & Programming of Computer Systems (2017–2020)"
+          }
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/rúben-cipriano-109508197/",
+          "https://github.com/RubenCipriano"
+        ]
+      }
     ]
   }
   </script>

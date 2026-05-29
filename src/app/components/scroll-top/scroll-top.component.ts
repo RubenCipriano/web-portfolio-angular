@@ -25,10 +25,11 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
   `,
   styles: [`
     .scroll-top{
-      position:fixed; right:15px; bottom:15px;
-      padding:25px;
+      position:fixed; right:20px; bottom:20px;
+      width:52px; height:52px; border-radius:14px;
       display:flex; align-items:center; justify-content:center;
-      background:var(--primary-color-darker); color:#fff; font-size:20px;
+      background:var(--accent-gradient); color:#fff; font-size:20px;
+      box-shadow:0 10px 24px -10px var(--accent);
       cursor:pointer; z-index:1100;
       opacity:0; transform:translateY(8px); pointer-events:none;
       transition:opacity .2s ease, transform .2s ease;
@@ -36,6 +37,7 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
     .scroll-top.show{
       opacity:1; transform:translateY(0); pointer-events:auto;
     }
+    .scroll-top:hover{ transform:translateY(-3px); }
     @media (prefers-reduced-motion: reduce){
       .scroll-top{ transition:none; }
     }

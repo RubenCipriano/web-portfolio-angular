@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Developer Portfolio",
+    "description": "This portfolio site — a server-rendered Angular 20 app with a light/dark theme, prerendering for SEO, and data-driven sections. Built with Bootstrap and custom SCSS.",
+    "thumbnail": "assets/projects/portfolio.png",
+    "techStack": ["Angular", "TypeScript", "SCSS", "Bootstrap", "SSR"],
+    "liveUrl": "https://rubencipriano.top",
+    "repoUrl": "https://github.com/RubenCipriano",
+    "featured": true
+  },
+  {
+    "title": "ZeroDown",
+    "description": "A homepage for my personal brand / homelab. Built with Node.js, Express, and TypeScript.",
+    "techStack": ["Node.js", "Express", "TypeScript"],
+    "liveUrl": "https://zerodown.top/",
+    "featured": true
+  },
+  {
+    "title": "Valentines Gift",
+    "description": "A valentines gift for my girlfriend. A web app that allows users to create and share personalized love notes. Built with React, Next.js.",
+    "techStack": ["React", "Next.js"],
+    "liveUrl": "https://valentines.zerodown.top/",
+    "repoUrl": "https://github.com/RubenCipriano/philippines-wife-trip-valentines",
+    "featured": true
+  }
+]

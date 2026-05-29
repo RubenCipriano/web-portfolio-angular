@@ -1,86 +1,81 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faChevronRight, faDownload, faEnvelope, faPhoneAlt, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faDownload, faEnvelope, faPhoneAlt, faMapMarkerAlt, faCode } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
+
 import { ExperienceService } from './services/experience.service';
+import { ProjectService } from './services/project.service';
+import { EducationService } from './services/education.service';
 import { Experience } from './models/experience.model';
+import { Project } from './models/project.model';
+import { Education } from './models/education.model';
+
 import { TechCardComponent } from './components/tech-card/tech-card.component';
 import { ExperienceCardComponent } from './components/experience-card/experience-card.component';
 import { ScrollTopButtonComponent } from './components/scroll-top/scroll-top.component';
+import { NavHeaderComponent } from './components/nav-header/nav-header.component';
+import { AboutMeComponent } from './components/about-me/about-me.component';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
+import { EducationCardComponent } from './components/education-card/education-card.component';
+import { RevealDirective } from './directives/reveal.directive';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, TechCardComponent, ExperienceCardComponent, ScrollTopButtonComponent, FontAwesomeModule],
-  providers: [ExperienceService],
+  imports: [
+    CommonModule,
+    FontAwesomeModule,
+    TechCardComponent,
+    ExperienceCardComponent,
+    ScrollTopButtonComponent,
+    NavHeaderComponent,
+    AboutMeComponent,
+    ProjectCardComponent,
+    EducationCardComponent,
+    RevealDirective,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   title = 'portfolio-web';
   experiences?: Experience[];
+  projects?: Project[];
+  education?: Education[];
   currentYear = new Date().getFullYear();
 
-  constructor(private experienceService: ExperienceService, library: FaIconLibrary) {
-    library.addIcons(faChevronRight, faDownload, faEnvelope, faPhoneAlt, faMapMarkerAlt, faLinkedinIn, faGithub);
+  constructor(
+    private experienceService: ExperienceService,
+    private projectService: ProjectService,
+    private educationService: EducationService,
+    library: FaIconLibrary
+  ) {
+    library.addIcons(faChevronRight, faDownload, faEnvelope, faPhoneAlt, faMapMarkerAlt, faCode, faLinkedinIn, faGithub);
   }
 
+  // Ordered by how much I actually use them day to day.
   techCards = [
-    {
-      title: 'Angular',
-      description: 'Angular framework',
-      image: 'assets/angular_logo.svg',
-      bgColorClass: 'bg-red-dark'
-    },
-    {
-      title: 'Typescript',
-      description: 'Javascript but better',
-      image: 'assets/typescript_logo.svg',
-      bgColorClass: 'bg-blue-dark'
-    },
-    {
-      title: 'C#',
-      description: 'Programming Language',
-      image: 'assets/csharp_logo.svg',
-      bgColorClass: 'bg-purple-dark'
-    },
-    {
-      title: 'GIT',
-      description: 'Version Control',
-      image: 'assets/git_logo.svg',
-      bgColorClass: 'bg-orange-dark'
-    },
-    {
-      title: 'SCSS',
-      description: 'CSS but better',
-      image: 'assets/sass_logo.svg',
-      bgColorClass: 'bg-pink-dark'
-    },
-    {
-      title: 'SQL',
-      description: 'Database',
-      image: '/assets/sql_logo.svg',
-      bgColorClass: 'bg-white-dark'
-    },
-    {
-      title: 'NodeJS',
-      description: 'Javascript framework',
-      image: 'assets/nodejs_logo.svg',
-      bgColorClass: 'bg-green-dark'
-    },
-    {
-      title: 'Bootstrap',
-      description: 'Tailwind but older',
-      image: 'assets/bootstrap_logo.svg',
-      bgColorClass: 'bg-purple-dark'
-    },
+    { title: 'TypeScript', description: 'My primary language', image: 'assets/typescript_logo.svg', bgColorClass: 'bg-blue-dark' },
+    { title: 'Next.js', description: 'React framework', image: 'assets/nextjs_logo.svg', bgColorClass: 'bg-white-dark' },
+    { title: 'React', description: 'UI library', image: 'assets/react_logo.svg', bgColorClass: 'bg-blue-dark' },
+    { title: 'C#', description: '.NET back-end', image: 'assets/csharp_logo.svg', bgColorClass: 'bg-purple-dark' },
+    { title: 'SQL Server', description: 'Relational database', image: 'assets/sql_logo.svg', bgColorClass: 'bg-white-dark' },
+    { title: 'Git', description: 'Version control', image: 'assets/git_logo.svg', bgColorClass: 'bg-orange-dark' },
+    { title: 'SCSS', description: 'Styling', image: 'assets/sass_logo.svg', bgColorClass: 'bg-pink-dark' },
+    { title: 'Node.js', description: 'JavaScript runtime', image: 'assets/nodejs_logo.svg', bgColorClass: 'bg-green-dark' },
   ];
 
   ngOnInit(): void {
     this.experienceService.getExperiences().subscribe({
-      next: (data) => {
-        this.experiences = data;
-      }
+      next: (data) => (this.experiences = data),
+    });
+
+    this.projectService.getProjects().subscribe({
+      next: (data) => (this.projects = data),
+    });
+
+    this.educationService.getEducation().subscribe({
+      next: (data) => (this.education = data),
     });
   }
 }

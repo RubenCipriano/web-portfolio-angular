@@ -1,5 +1,8 @@
 [build]
-  command = "npm run build && npm run build:server && npm run prerender || true"
+  # The `application` builder does browser + SSR + prerender in one step,
+  # producing matching bundle hashes. (The old multi-step command could
+  # desync hashes and 404 the main bundle.)
+  command = "npm run build"
   publish = "dist/portfolio-web/browser"
 
 [context.production.environment]

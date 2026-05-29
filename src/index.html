@@ -1,11 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <title>Ruben Cipriano - Portfolio</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Ruben Cipriano — Portugal-based software developer.">
+  <meta name="theme-color" content="#000032" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f4f6fb" media="(prefers-color-scheme: light)">
+  <link rel="canonical" href="https://rubencipriano.top/">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:site_name" content="Ruben Cipriano - Portfolio">
@@ -18,11 +21,68 @@
   <meta name="twitter:description" content="Full-stack software developer specializing in Angular, TypeScript, C# and Node JS.">
   <meta name="twitter:image" content="https://rubencipriano.top/assets/preview-image.png">
 
+  <!-- Set theme before first paint to avoid a flash (FOUC). Runs only in the browser. -->
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { /* keep the static default */ }
+    })();
+  </script>
+
+  <!-- Fonts: load non-render-blocking. The preload flips to a stylesheet on
+       load, so first paint never waits on the external font CSS. The build's
+       critical-CSS step can't turn a <link rel=preload> back into a blocker. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap">
+  </noscript>
+
   <!-- Preload critical data to reduce critical path latency -->
   <link rel="preload" href="/assets/data/experiences.json" as="fetch" crossorigin>
   <link rel="icon" type="image/x-icon" href="favicon.svg">
+
+  <!-- Structured data for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ruben Cipriano",
+    "url": "https://rubencipriano.top",
+    "jobTitle": "Software Developer",
+    "email": "mailto:rubencipriano13@gmail.com",
+    "image": "https://rubencipriano.top/assets/preview-image.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "Portugal"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/rúben-cipriano-109508197/",
+      "https://github.com/RubenCipriano"
+    ]
+  }
+  </script>
 </head>
 <body>
   <app-root></app-root>
+
+  <!--
+    Hidden static form so Netlify's build-time scanner registers the "contact" form.
+    The live Angular form (contact-form component) posts to this same name.
+  -->
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+    <input type="text" name="bot-field" />
+  </form>
 </body>
 </html>

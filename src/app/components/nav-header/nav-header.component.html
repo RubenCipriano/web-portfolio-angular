@@ -1,0 +1,47 @@
+<header class="nav-header" [class.scrolled]="scrolled()">
+  <nav class="container nav-inner" aria-label="Primary">
+    <!-- Brand -->
+    <a href="#home" class="brand" (click)="closeMenu()">
+      <span class="brand-badge">RC</span>
+      <span class="brand-name">Ruben Cipriano</span>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="nav-links d-none d-lg-flex align-items-center mb-0">
+      <li *ngFor="let link of links">
+        <a [href]="link.href" (click)="closeMenu()">{{ link.label }}</a>
+      </li>
+    </ul>
+
+    <div class="nav-actions d-flex align-items-center gap-2">
+      <!-- Theme toggle -->
+      <button
+        type="button"
+        class="icon-btn"
+        (click)="toggleTheme()"
+        [attr.aria-label]="theme.isDark() ? 'Switch to light theme' : 'Switch to dark theme'">
+        <fa-icon [icon]="['fas', theme.isDark() ? 'sun' : 'moon']"></fa-icon>
+      </button>
+
+      <!-- Mobile hamburger -->
+      <button
+        type="button"
+        class="icon-btn d-lg-none"
+        (click)="toggleMenu()"
+        aria-label="Toggle navigation menu"
+        aria-controls="mobile-menu"
+        [attr.aria-expanded]="menuOpen()">
+        <fa-icon [icon]="['fas', menuOpen() ? 'xmark' : 'bars']"></fa-icon>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu panel -->
+  <div id="mobile-menu" class="mobile-menu d-lg-none" [class.open]="menuOpen()">
+    <ul class="list-unstyled mb-0">
+      <li *ngFor="let link of links">
+        <a [href]="link.href" (click)="closeMenu()">{{ link.label }}</a>
+      </li>
+    </ul>
+  </div>
+</header>

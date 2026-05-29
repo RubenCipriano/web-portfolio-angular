@@ -1,0 +1,135 @@
+.nav-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  width: 100%;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+  border-bottom: 1px solid transparent;
+
+  &.scrolled {
+    background-color: color-mix(in srgb, var(--bg) 72%, transparent);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom-color: var(--card-border);
+    box-shadow: 0 8px 24px -16px var(--shadow-color);
+  }
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0.85rem;
+  transition: padding-block 0.3s ease;
+
+  .scrolled & { padding-block: 0.6rem; }
+}
+
+/* Brand */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text);
+}
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--accent-gradient);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 18px -10px var(--accent);
+}
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.2px;
+}
+
+/* Links */
+.nav-links {
+  gap: 2rem;
+
+  li a {
+    position: relative;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    font-weight: 500;
+    padding: 0.25rem 0;
+    transition: color 0.2s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--accent-gradient);
+      transition: width 0.25s ease;
+    }
+
+    &:hover {
+      color: var(--text);
+      &::after { width: 100%; }
+    }
+  }
+}
+
+/* Icon buttons */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  border: 1px solid var(--card-border);
+  background-color: var(--surface-card);
+  color: var(--text);
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: var(--card-border-hover);
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+}
+
+/* Mobile menu */
+.mobile-menu {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  background-color: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: max-height 0.32s ease, opacity 0.32s ease;
+
+  &.open {
+    max-height: 460px;
+    opacity: 1;
+    border-bottom-color: var(--card-border);
+  }
+
+  ul li a {
+    display: block;
+    padding: 0.95rem 1.5rem;
+    color: var(--text);
+    font-weight: 500;
+    border-top: 1px solid var(--card-border);
+
+    &:hover { color: var(--accent); }
+  }
+}

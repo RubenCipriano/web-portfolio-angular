@@ -1,0 +1,75 @@
+.education-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  padding: 24px;
+  background-color: var(--surface-card);
+  border-radius: 16px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  cursor: default;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent-gradient);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  &:hover::before { opacity: 1; }
+
+  &:hover {
+    border-color: var(--card-border-hover);
+    background-color: var(--surface-card-hover);
+    box-shadow: var(--shadow-card);
+  }
+
+  .icon-box {
+    background: var(--accent-gradient);
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+  }
+
+  .dates {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+}
+
+.type-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  color: var(--accent);
+  background-color: var(--accent-soft);
+  border: 1px solid var(--card-border);
+
+  &.is-cert {
+    color: #d8a400;
+    background-color: rgba(216, 164, 0, 0.14);
+  }
+}
+
+.credential-link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--primary-color-lighter);
+
+  &:hover { text-decoration: underline; }
+}

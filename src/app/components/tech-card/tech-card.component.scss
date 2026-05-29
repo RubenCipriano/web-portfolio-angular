@@ -1,11 +1,11 @@
 .custom-card {
-    border: 1px solid transparent;
-    border-radius: 10px;
-    background-color: var(--primary-color-darker);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    background-color: var(--surface-card);
     display: flex;
     align-items: center;
-    height: 80px;
-    transition: 1s all;
+    height: 84px;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
     cursor: default;
 
     h4 {
@@ -21,47 +21,38 @@
 .image-container {
   height: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .custom-card:hover {
-  border: 1px solid #434343;
+  border-color: var(--card-border-hover);
+  background-color: var(--surface-card-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
 }
 
+/* Every logo sits on a clean white "chip" so the brand colours stay crisp
+   and consistent in both themes (the old tinted tiles muddied them). */
 .image-responsive {
-    border-radius: 10px;
-    max-height: 100%;
-    height: 100%;
-    width: 100%;
-    padding: 10px;
-    aspect-ratio: 1 / 1;
+    height: 56px;
+    width: 56px;
+    padding: 8px;
+    border-radius: 12px;
     object-fit: contain;
+    background-color: #ffffff;
+    border: 1px solid rgba(15, 23, 60, 0.10);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
-.bg-red-dark {
-    background-color: rgba(143, 0, 0, 0.5);
-}
-
-.bg-blue-dark {
-    background-color: rgba(0, 91, 143, 0.5);
-}
-
-.bg-purple-dark {
-    background-color: rgba(100, 0, 143, 0.5);
-}
-
-.bg-pink-dark {
-    background-color: rgba(143, 0, 114, 0.5);
-}
-
-.bg-white-dark {
-    background-color: rgba(83, 83, 83, 0.5);
-}
-
-
-.bg-orange-dark {
-    background-color: rgba(104, 56, 0, 0.5);
-}
-
+/* Legacy per-card colour classes are intentionally neutralised to the white
+   chip above — kept as no-ops so the existing [ngClass] bindings still resolve. */
+.bg-red-dark,
+.bg-blue-dark,
+.bg-purple-dark,
+.bg-pink-dark,
+.bg-white-dark,
+.bg-orange-dark,
 .bg-green-dark {
-    background-color: rgba(15, 102, 0, 0.5);
+    background-color: #ffffff;
 }

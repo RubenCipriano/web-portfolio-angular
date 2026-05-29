@@ -5,6 +5,7 @@ import {
     writeResponseToNodeResponse,
   } from '@angular/ssr/node';
   import express from 'express';
+  import compression from 'compression';
   import { dirname, resolve } from 'node:path';
   import { fileURLToPath } from 'node:url';
 
@@ -13,8 +14,11 @@ import {
   
   const app = express();
   const angularApp = new AngularNodeAppEngine();
-  
+
   // Configurações iniciais
+  // Gzip/brotli-compress every response (HTML, JS, CSS) so self-hosted SSR
+  // matches what the Netlify CDN serves in production.
+  app.use(compression());
   app.use(express.json());
   /**
    * Serve static files from /browser
@@ -44,7 +48,10 @@ import {
    * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
    */
   if (isMainModule(import.meta.url)) {
-    const port = process.env['PORT'] || 4000;
+    const args = process.argv.slice(2);
+    const portArgIndex = args.indexOf('--port');
+    const portArg = portArgIndex !== -1 ? args[portArgIndex + 1] : undefined;
+    const port = process.env['PORT'] || portArg || 4000;
     app.listen(port, () => {
       console.log(`Node Express server listening on http://localhost:${port}`);
     });

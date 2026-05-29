@@ -1,66 +1,381 @@
-/* Bootstrap Core (Correct Order for Bootstrap 5.3 + Angular 20) */
-
-/* Bootstrap Core (Correct Order) */
-
-/* Bootstrap Core */
-
+/* Bootstrap — granular imports. We deliberately DO NOT import the full
+   "utilities/api" (it generates ~140 KB of mostly-unused classes). The
+   handful of utility classes the templates use are defined below instead. */
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
-
-/* Base styling (VERY IMPORTANT — you were missing this) */
 @import "bootstrap/scss/reboot";
 @import "bootstrap/scss/type";
-@import "bootstrap/scss/images";
 @import "bootstrap/scss/containers";
-
-/* Layout + utilities */
 @import "bootstrap/scss/grid";
-@import "bootstrap/scss/utilities";
-@import "bootstrap/scss/utilities/api";
 
 
-/* ===== Your Custom Styles ===== */
+/* ============================================================
+   Design tokens
+   ============================================================ */
 
+/* Dark theme is the default (also the fallback if no [data-theme]). */
 :root {
-  --primary-color-lighter: rgb(0, 140, 255);
-  --primary-color: rgb(0, 0, 50);
-  --primary-color-darker: rgb(0, 0, 30);
-  --primary-color-white: #fff;
-  --secundary-color-white: #3d3d3d;
-  --treciary-color-white: #a8a8a8;
+  /* Brand */
+  --accent: #3b9bff;
+  --accent-strong: #1f7ce8;
+  --accent-soft: rgba(59, 155, 255, 0.14);
+  --accent-gradient: linear-gradient(135deg, #3b9bff 0%, #6f7bff 100%);
+
+  /* Surfaces */
+  --bg: #05061b;
+  --bg-elevated: #0b0d2b;
+  --surface-card: #0e1033;
+  --surface-card-hover: #131645;
+  --card-border: rgba(255, 255, 255, 0.07);
+  --card-border-hover: rgba(110, 160, 255, 0.45);
+
+  /* Text */
+  --text: #f3f5fb;
+  --text-muted: #9aa1bd;
+
+  /* Effects */
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 18px 40px -20px rgba(0, 0, 0, 0.85);
+
+  /* ---- Legacy aliases (kept so older markup keeps working) ---- */
+  --primary-color-lighter: var(--accent);
+  --primary-color: var(--bg);
+  --primary-color-darker: var(--bg-elevated);
+  --primary-color-white: var(--text);
+  --secundary-color-white: var(--card-border);
+  --treciary-color-white: var(--text-muted);
+  --border-subtle: var(--card-border-hover);
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Poppins", var(--font-sans);
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 5rem;
+  --space-8: 8rem;
+
+  /* Vertical rhythm between major sections */
+  --section-pad: clamp(4rem, 9vw, 7.5rem);
+
+  /* Max content width for readable text blocks */
+  --measure: 42rem;
 }
 
+/* Light theme overrides */
+:root[data-theme="light"] {
+  --accent: #1f7ce8;
+  --accent-strong: #0a63cc;
+  --accent-soft: rgba(31, 124, 232, 0.12);
+  --accent-gradient: linear-gradient(135deg, #2f8bff 0%, #6f7bff 100%);
+
+  --bg: #f5f7fc;
+  --bg-elevated: #ffffff;
+  --surface-card: #ffffff;
+  --surface-card-hover: #ffffff;
+  --card-border: rgba(15, 23, 60, 0.10);
+  --card-border-hover: rgba(31, 124, 232, 0.55);
+
+  --text: #161a2b;
+  --text-muted: #586079;
+
+  --shadow-color: rgba(20, 30, 60, 0.14);
+  --shadow-card: 0 18px 40px -24px rgba(20, 30, 60, 0.45);
+}
+
+
+/* ============================================================
+   Base
+   ============================================================ */
+
 body {
-  background-color: var(--primary-color);
+  background-color: var(--bg);
+  color: var(--text);
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
 p { margin: 0; }
+a { text-decoration: none; color: inherit; }
 
-a { text-decoration: none; }
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 6rem; }
 
-.h-100 { height: 100vh !important; }
-.text-white { color: var(--primary-color-white) !important; }
+.h-100 { height: 100% !important; }
+.h-100vh { height: 100vh !important; }
+.text-white { color: var(--text) !important; }
+.text-secondary-white { color: var(--text-muted); }
 
 h5 {
   font-size: 0.8em;
   letter-spacing: 2px;
-  color: var(--treciary-color-white);
+  color: var(--text-muted);
 }
 
-.margin-5 { margin: 5px; }
-.text-secondary-white { color: var(--treciary-color-white); }
-.mt-10 { margin-top: 5em; }
-.mt-20 { margin-top: 10em; }
+/* Legacy spacing aliases */
+.m-5 { margin: 5px; }
+.mt-10 { margin-top: var(--space-7); }
+.mt-20 { margin-top: 0; }   /* spacing now handled by .section */
+.mb-5 { margin-bottom: var(--space-5); }
+.mb-20 { margin-bottom: 0; } /* spacing now handled by .section */
 
 .gradient-background {
-  background: linear-gradient(
-    135deg,
-    var(--primary-color) 0%,
-    var(--primary-color-darker) 50%,
-    var(--primary-color) 100%
-  );
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-elevated) 100%);
+  transition: background 0.3s ease;
+}
+
+
+/* ============================================================
+   Curated utility classes
+   (replaces Bootstrap's utilities/api — only what the templates use)
+   ============================================================ */
+
+/* display */
+.d-flex { display: flex !important; }
+.d-none { display: none !important; }
+.d-inline { display: inline !important; }
+
+/* flex */
+.flex-column { flex-direction: column !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+.flex-grow-1 { flex-grow: 1 !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.align-items-center { align-items: center !important; }
+.align-items-start { align-items: flex-start !important; }
+.align-content-center { align-content: center !important; }
+
+/* gap */
+.gap-2 { gap: 0.5rem !important; }
+.gap-3 { gap: 1rem !important; }
+.gap-4 { gap: 1.5rem !important; }
+
+/* text + weight */
+.text-center { text-align: center !important; }
+.fw-semibold { font-weight: 600 !important; }
+.fw-bold { font-weight: 700 !important; }
+
+/* list reset */
+.list-unstyled { padding-left: 0; list-style: none; margin: 0; }
+
+/* margins */
+.m-1 { margin: 0.25rem !important; }
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+.mt-auto { margin-top: auto !important; }
+.mt-0 { margin-top: 0 !important; }
+.mt-1 { margin-top: 0.25rem !important; }
+.mt-2 { margin-top: 0.5rem !important; }
+.mt-3 { margin-top: 1rem !important; }
+.mt-5 { margin-top: 3rem !important; }
+.mb-0 { margin-bottom: 0 !important; }
+.mb-1 { margin-bottom: 0.25rem !important; }
+.mb-2 { margin-bottom: 0.5rem !important; }
+.mb-3 { margin-bottom: 1rem !important; }
+.mb-4 { margin-bottom: 1.5rem !important; }
+.me-1 { margin-right: 0.25rem !important; }
+.me-2 { margin-right: 0.5rem !important; }
+.me-3 { margin-right: 1rem !important; }
+
+/* paddings */
+.p-0 { padding: 0 !important; }
+.p-3 { padding: 1rem !important; }
+.py-5 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+.ps-3 { padding-left: 1rem !important; }
+
+/* responsive variants actually used */
+@media (min-width: 768px) {
+  .text-md-end { text-align: right !important; }
+  .mt-md-0 { margin-top: 0 !important; }
+}
+@media (min-width: 992px) {
+  .d-lg-flex { display: flex !important; }
+  .d-lg-none { display: none !important; }
+}
+
+
+/* ============================================================
+   Section system  (one rhythm + one header style everywhere)
+   ============================================================ */
+
+.section {
+  padding-block: var(--section-pad);
+}
+.section--tight {
+  padding-block: calc(var(--section-pad) * 0.55);
+}
+
+.section-head {
+  margin-bottom: var(--space-6);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.85rem;
+}
+.eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.85rem;
+}
+
+.section-lead {
+  max-width: var(--measure);
+  color: var(--text-muted);
+  font-size: 1.02rem;
+}
+
+
+/* ============================================================
+   Buttons  (one button language)
+   ============================================================ */
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-cta--primary {
+  background: var(--accent-gradient);
+  color: #fff;
+  box-shadow: 0 10px 24px -10px var(--accent);
+}
+.btn-cta--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -12px var(--accent);
+  color: #fff;
+}
+
+.btn-cta--ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--card-border);
+}
+.btn-cta--ghost:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-border-hover);
+  color: var(--accent);
+}
+
+
+/* ============================================================
+   Card surface  (shared by every card type)
+   ============================================================ */
+
+.surface {
+  background-color: var(--surface-card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.surface:hover {
+  border-color: var(--card-border-hover);
+  background-color: var(--surface-card-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+/* Reusable tech pill */
+.tech-pill {
+  border: 1px solid var(--card-border);
+  background-color: var(--accent-soft);
+  color: var(--text);
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   Scroll-reveal (replaces the AOS library)
+   Elements are visible by default (SSG / no-JS safe). The RevealOnScroll
+   directive adds .reveal in the browser, then .is-visible when in view.
+   ============================================================ */
+
+[data-aos].reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: opacity, transform;
+  transition: opacity 0.6s cubic-bezier(0.2, 0.6, 0.2, 1),
+              transform 0.6s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+[data-aos].reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* ============================================================
+   Accessibility
+   ============================================================ */
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 2000;
+  padding: 0.75rem 1.25rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus { left: 0; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+  [data-aos].reveal { opacity: 1 !important; transform: none !important; }
 }

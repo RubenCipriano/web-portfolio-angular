@@ -1,0 +1,23 @@
+[
+  {
+    "qualification": "CTeSP — Web & Mobile Application Development",
+    "institution": "ISTEC",
+    "startDate": "2020",
+    "endDate": "2022",
+    "location": "Lisbon, Portugal",
+    "icon": "fa-solid fa-graduation-cap",
+    "type": "education",
+    "description": "Foundations in UI/UX design principles, usability patterns, and human-centered design through hands-on academic projects, alongside analytical thinking and problem-solving in team-based development assignments."
+  },
+  {
+    "qualification": "Technician in Management & Programming of Computer Systems",
+    "institution": "INETE — Instituto de Educação Técnica",
+    "startDate": "2017",
+    "endDate": "2020",
+    "location": "Lisbon, Portugal",
+    "icon": "fa-solid fa-graduation-cap",
+    "type": "education",
+    "description": "Professional secondary education (EQF level 4) in software systems management and programming. Final classification: 15/20.",
+    "credentialUrl": "assets/certificate/inete_diploma.pdf"
+  }
+]

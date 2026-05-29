@@ -1,0 +1,46 @@
+<article class="project-card h-100 d-flex flex-column">
+  <!-- Thumbnail or fallback -->
+  <div class="thumb">
+    <img
+      *ngIf="project.thumbnail && !imageFailed; else placeholder"
+      [src]="project.thumbnail"
+      [alt]="project.title + ' screenshot'"
+      loading="lazy"
+      (error)="imageFailed = true">
+    <ng-template #placeholder>
+      <div class="thumb-placeholder" aria-hidden="true">{{ initial }}</div>
+    </ng-template>
+  </div>
+
+  <div class="body d-flex flex-column flex-grow-1 p-3">
+    <h3 class="title mb-2">{{ project.title }}</h3>
+    <p class="text-secondary-white description mb-3">{{ project.description }}</p>
+
+    <div class="tech-stack mb-3">
+      <span class="tech-pill me-1 mb-1" *ngFor="let tech of project.techStack">{{ tech }}</span>
+    </div>
+
+    <div class="actions d-flex gap-2 mt-auto">
+      <a
+        *ngIf="project.liveUrl"
+        class="action-link"
+        [href]="project.liveUrl"
+        target="_blank"
+        rel="noopener"
+        [attr.aria-label]="'Open live demo of ' + project.title">
+        <fa-icon [icon]="['fas', 'arrow-up-right-from-square']" class="me-1"></fa-icon>
+        Live
+      </a>
+      <a
+        *ngIf="project.repoUrl"
+        class="action-link"
+        [href]="project.repoUrl"
+        target="_blank"
+        rel="noopener"
+        [attr.aria-label]="'View source code of ' + project.title">
+        <fa-icon [icon]="['fab', 'github']" class="me-1"></fa-icon>
+        Code
+      </a>
+    </div>
+  </div>
+</article>

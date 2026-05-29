@@ -1,0 +1,42 @@
+<div class="container text-white">
+  <div class="row align-items-center gy-4">
+    <!-- Photo / monogram -->
+    <div class="col-lg-4 text-center">
+      <div class="about-photo mx-auto">
+        <img
+          *ngIf="photo && !imageFailed; else monogram"
+          [src]="photo"
+          alt="Portrait of Ruben Cipriano"
+          loading="lazy"
+          (error)="imageFailed = true">
+        <ng-template #monogram>
+          <span class="monogram" aria-hidden="true">RC</span>
+        </ng-template>
+      </div>
+    </div>
+
+    <!-- Bio + stats -->
+    <div class="col-lg-8">
+      <span class="eyebrow">Who I am</span>
+      <h2 class="section-title">About Me</h2>
+      <p class="text-secondary-white mb-3">
+        I'm a Software Developer with experience across front-end and back-end technologies,
+        focusing on React, Next.js, Angular, TypeScript, C#, and SQL. I've worked on building
+        scalable web applications, designing REST APIs, and modernizing legacy systems.
+      </p>
+      <p class="text-secondary-white mb-4">
+        I specialize in clean, responsive user interfaces built with HTML, CSS, SCSS, and
+        JavaScript, while keeping performance optimization and maintainability front of mind.
+      </p>
+
+      <div class="row g-3">
+        <div class="col-6 col-md-4" *ngFor="let stat of stats">
+          <div class="stat-card text-center">
+            <div class="stat-value">{{ stat.value }}</div>
+            <div class="stat-label text-secondary-white">{{ stat.label }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

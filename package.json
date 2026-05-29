@@ -4,9 +4,8 @@
   "scripts": {
     "start": "ng serve",
     "build": "ng build",
-    "build:server": "ng run portfolio-web:server:production",
-    "prerender": "ng run portfolio-web:prerender",
-    "serve:ssr": "node dist/portfolio-web/server/server.mjs"
+    "serve:ssr": "node dist/portfolio-web/server/server.mjs",
+    "preview": "ng build && node dist/portfolio-web/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +26,7 @@
     "aos": "^2.3.4",
     "bcryptjs": "^3.0.2",
     "bootstrap": "^5.3.8",
+    "compression": "^1.7.4",
     "dotenv": "^16.4.7",
     "express": "^4.18.2",
     "rxjs": "~7.8.1",
@@ -38,6 +38,7 @@
     "@angular/cli": "^20.3.16",
     "@angular/compiler-cli": "^20.3.16",
     "@types/aos": "^3.0.7",
+    "@types/compression": "^1.7.5",
     "@types/express": "^5.0.6",
     "@types/node": "^25.3.0",
     "typescript": "~5.8.2"

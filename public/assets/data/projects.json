@@ -9,7 +9,7 @@
   {
     "title": "Income Planner — Portugal",
     "description": "A Portuguese income & tax planner that compares working as an employee, freelancer or company (Lda.) side by side with current tax rules — including Coverflex benefits, IRS Jovem, break-even, salary/dividend optimisation and investment projections. Exports to PDF and Excel.",
-    "techStack": ["Svelte", "Vite", "PostgreSQL", "Zod", "Charts", "Google OAuth"],
+    "techStack": ["Svelte", "Vite", "PocketBase", "Zod", "Charts", "Google OAuth"],
     "liveUrl": "https://finances.zerodown.top/",
     "featured": true
   },

@@ -37,7 +37,7 @@ Portuguese (native), English (professional working proficiency).
   React, TypeScript, Vite, Tailwind, Fastify, PostgreSQL, OpenProject API. In use at IRN.
 - Income Planner — Portugal (https://finances.zerodown.top) — Portuguese income & tax planner
   comparing employee vs freelancer vs company (Lda.), with investment projections and PDF/Excel
-  export. Svelte, Vite, PostgreSQL, Zod.
+  export. Svelte, Vite, PocketBase, Zod.
 - Discord Music Bot + Dashboard (https://bot.zerodown.top) — multi-guild MEE6-style Discord bot
   (YouTube music, Twitch notifications) configured via a web dashboard. Next.js, React, TypeScript,
   discord.js, Node.js, SQLite, Docker.

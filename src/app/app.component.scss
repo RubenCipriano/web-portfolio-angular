@@ -57,12 +57,7 @@
   justify-content: center;
 }
 
-/* ===== Skillset — grouped toolbox + languages ===== */
-.skill-group {
-  padding: 1.4rem 1.5rem;
-  height: 100%;
-}
-
+/* ===== Skillset — spoken languages ===== */
 .skill-group-title {
   display: flex;
   align-items: center;
@@ -76,22 +71,6 @@
 .skill-group-icon {
   color: var(--accent);
   font-size: 0.95rem;
-}
-
-.skill-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-
-  .tech-pill {
-    font-size: 0.75rem;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-
-    &:hover {
-      border-color: var(--card-border-hover);
-      transform: translateY(-2px);
-    }
-  }
 }
 
 .language-card {

@@ -44,8 +44,8 @@
         <span class="eyebrow">What I use</span>
         <h2 class="section-title">Skillset</h2>
         <p class="section-lead">
-          The stack I work with day to day — from React, Next.js and TypeScript on the front end to
-          C#/.NET and Node.js on the back end — plus the databases, DevOps and testing tools I ship with.
+          The core stack I work with day to day — from React, Next.js and TypeScript on the front end
+          to C#/.NET and Node.js on the back end.
         </p>
       </div>
 
@@ -57,21 +57,6 @@
             [image]="tech.image"
             [bgColorClass]="tech.bgColorClass">
           </app-tech-card>
-        </div>
-      </div>
-
-      <!-- Full toolbox, grouped -->
-      <div class="row g-3 mt-3 skill-groups" data-aos="fade-up">
-        <div class="col-lg-4 col-md-6" *ngFor="let group of skillGroups">
-          <div class="surface skill-group h-100">
-            <h3 class="skill-group-title">
-              <fa-icon [icon]="['fas', group.icon]" class="skill-group-icon"></fa-icon>
-              {{ group.title }}
-            </h3>
-            <div class="skill-pills">
-              <span class="tech-pill" *ngFor="let item of group.items">{{ item }}</span>
-            </div>
-          </div>
         </div>
       </div>
 

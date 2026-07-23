@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faChevronRight, faDownload, faEnvelope, faPhoneAlt, faMapMarkerAlt, faCode, faServer, faDatabase, faGears, faClipboardCheck, faLanguage } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faDownload, faEnvelope, faPhoneAlt, faMapMarkerAlt, faCode, faLanguage } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedinIn, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 import { ExperienceService } from './services/experience.service';
@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
     private educationService: EducationService,
     library: FaIconLibrary
   ) {
-    library.addIcons(faChevronRight, faDownload, faEnvelope, faPhoneAlt, faMapMarkerAlt, faCode, faServer, faDatabase, faGears, faClipboardCheck, faLanguage, faLinkedinIn, faGithub);
+    library.addIcons(faChevronRight, faDownload, faEnvelope, faPhoneAlt, faMapMarkerAlt, faCode, faLanguage, faLinkedinIn, faGithub);
   }
 
   // Ordered by how much I actually use them day to day.
@@ -63,41 +63,6 @@ export class AppComponent implements OnInit {
     { title: 'SQL Server', description: 'Relational database', image: 'assets/sql_logo.svg', bgColorClass: 'bg-white-dark' },
     { title: 'Node.js', description: 'JavaScript runtime', image: 'assets/nodejs_logo.svg', bgColorClass: 'bg-green-dark' },
     { title: 'Git', description: 'Version control', image: 'assets/git_logo.svg', bgColorClass: 'bg-orange-dark' },
-  ];
-
-  // Full toolbox, grouped for scannability (and keyword coverage).
-  // Only technologies I've actually worked with are listed here.
-  skillGroups = [
-    {
-      title: 'Languages',
-      icon: 'code',
-      items: ['TypeScript', 'JavaScript (ES6+)', 'C#', 'Java', 'SQL', 'HTML5', 'CSS3'],
-    },
-    {
-      title: 'Front-End',
-      icon: 'code',
-      items: ['React', 'Next.js', 'Angular', 'Tailwind CSS', 'SCSS / Sass', 'Bootstrap', 'Responsive UI', 'Design Systems', 'State Management'],
-    },
-    {
-      title: 'Back-End',
-      icon: 'server',
-      items: ['ASP.NET Core / .NET', 'Node.js', 'Express', 'REST APIs', 'SOAP', 'Entity Framework', 'LINQ', 'Keycloak (OAuth2 / OIDC)', 'Kafka'],
-    },
-    {
-      title: 'Databases',
-      icon: 'database',
-      items: ['SQL Server', 'MySQL'],
-    },
-    {
-      title: 'DevOps & Cloud',
-      icon: 'gears',
-      items: ['Docker', 'Kubernetes', 'Jenkins', 'Azure DevOps', 'AWS', 'CI/CD', 'Git', 'SVN', 'Rundeck'],
-    },
-    {
-      title: 'Testing & Practices',
-      icon: 'clipboard-check',
-      items: ['Agile / Scrum', 'Jest', 'NUnit', 'Unit & Functional Testing', 'OOP & SOLID', 'Clean Code', 'Performance Optimization'],
-    },
   ];
 
   // Spoken languages.

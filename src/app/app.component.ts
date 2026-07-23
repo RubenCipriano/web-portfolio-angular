@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChevronRight, faDownload, faEnvelope, faPhoneAlt, faMapMarkerAlt, faCode, faLanguage } from '@fortawesome/free-solid-svg-icons';
@@ -43,6 +43,18 @@ export class AppComponent implements OnInit {
   projects?: Project[];
   education?: Education[];
   currentYear = new Date().getFullYear();
+
+  /** Controls the "which CV?" download chooser modal. */
+  readonly cvModalOpen = signal(false);
+
+  openCvModal(event: Event): void {
+    event.preventDefault();
+    this.cvModalOpen.set(true);
+  }
+
+  closeCvModal(): void {
+    this.cvModalOpen.set(false);
+  }
 
   constructor(
     private experienceService: ExperienceService,

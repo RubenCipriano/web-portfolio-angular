@@ -85,6 +85,100 @@
   }
 }
 
+/* ===== CV download chooser modal ===== */
+.cv-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(3, 5, 20, 0.62);
+  backdrop-filter: blur(3px);
+}
+
+.cv-modal {
+  position: relative;
+  width: min(30rem, 100%);
+  padding: 1.75rem 1.75rem 1.5rem;
+  /* neutralize .surface hover lift inside a dialog */
+  &:hover { transform: none; }
+}
+
+.cv-modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.35rem;
+}
+
+.cv-modal-sub { margin-bottom: 1.1rem; }
+
+.cv-modal-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cv-option {
+  display: block;
+  padding: 0.95rem 1.1rem;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    border-color: var(--card-border-hover);
+    background-color: var(--accent-soft);
+    transform: translateY(-2px);
+  }
+}
+
+.cv-option-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+  background: var(--accent-gradient);
+  padding: 0.25rem 0.6rem;
+  border-radius: 50px;
+  margin-bottom: 0.4rem;
+}
+
+.cv-option-badge--alt {
+  background: none;
+  background-color: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.cv-option-desc {
+  display: block;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.cv-modal-close {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.8rem;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--card-border);
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+
+  &:hover { color: var(--accent); border-color: var(--card-border-hover); }
+}
+
 /* ===== Footer ===== */
 .footer-heading {
   font-family: var(--font-display);

@@ -22,11 +22,11 @@ Portuguese (native), English (C1, professional working proficiency).
 
 ## Experience
 - Full-stack Developer — Growmate (2025–present), consulting for client IRN, Lisbon.
-  Owns payment/fraud-prevention flows, Keycloak + Chave Móvel Digital (CMD) auth,
+  Owns payment/fraud-prevention flows; fixed 100+ urgent/critical issues (authentication,
+  payments, accessibility, UI/UX); Keycloak + Chave Móvel Digital (CMD) auth,
   React/Next.js front ends and C#/.NET back-end services, Kafka, Redis; mentors juniors.
 - Full-stack Developer — Neotalent / VORTAL (2024–2025), e-tendering public platform (C#, React).
-  Operations Team II — escalation tier that resolves the underlying defects; fixed 100+ urgent/critical
-  issues (authentication, payments, accessibility, UI/UX).
+  Operations Team II — escalation tier that diagnoses and resolves the real underlying defects.
 - Back-end Developer — VIA Consulting (2023–2024). Solo-delivered a stalled banking
   integration to production; shipped online pet insurance now live in the Millennium BCP app.
 - Front-end Developer (Intern) — Emvenci (2022), Angular design system.

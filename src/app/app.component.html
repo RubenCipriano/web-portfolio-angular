@@ -22,7 +22,7 @@
           View my work
           <fa-icon [icon]="['fas', 'chevron-right']"></fa-icon>
         </a>
-        <a class="btn-cta btn-cta--ghost" href="assets/files/cv-2col.pdf" download="Ruben-Cipriano-CV.pdf">
+        <a class="btn-cta btn-cta--ghost" href="assets/files/cv-2col.pdf" (click)="openCvModal($event)">
           <fa-icon [icon]="['fas', 'download']"></fa-icon>
           Download CV
         </a>
@@ -163,8 +163,7 @@
           <li><a href="#skillset" class="footer-link">Skillset</a></li>
           <li><a href="#work-experience" class="footer-link">Experience</a></li>
           <li><a href="#projects" class="footer-link">Projects</a></li>
-          <li><a href="assets/files/cv-2col.pdf" download="Ruben-Cipriano-CV.pdf" class="footer-link">Download CV</a></li>
-          <li><a href="assets/files/cv.pdf" download="Ruben-Cipriano-CV-ATS.pdf" class="footer-link">CV (ATS-friendly)</a></li>
+          <li><a href="assets/files/cv-2col.pdf" (click)="openCvModal($event)" class="footer-link">Download CV</a></li>
         </ul>
       </div>
 
@@ -212,5 +211,36 @@
     </div>
   </div>
 </footer>
+
+<!-- CV download chooser -->
+<div class="cv-modal-backdrop" *ngIf="cvModalOpen()" (click)="closeCvModal()">
+  <div class="cv-modal surface" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title"
+       (click)="$event.stopPropagation()">
+    <h3 id="cv-modal-title" class="cv-modal-title">Download CV</h3>
+    <p class="text-secondary-white cv-modal-sub">
+      Pick the version that fits how you'll use it.
+    </p>
+
+    <div class="cv-modal-options">
+      <a class="cv-option" href="assets/files/cv.pdf" download="Ruben-Cipriano-CV-ATS.pdf"
+         (click)="closeCvModal()">
+        <span class="cv-option-badge">ATS FRIENDLY</span>
+        <span class="cv-option-desc text-secondary-white">
+          Single column, plain text — best for job applications and resume scanners.
+        </span>
+      </a>
+
+      <a class="cv-option" href="assets/files/cv-2col.pdf" download="Ruben-Cipriano-CV.pdf"
+         (click)="closeCvModal()">
+        <span class="cv-option-badge cv-option-badge--alt">DESIGNED / NON-ATS</span>
+        <span class="cv-option-desc text-secondary-white">
+          Two-column visual layout — best for humans, email and printing.
+        </span>
+      </a>
+    </div>
+
+    <button type="button" class="cv-modal-close" aria-label="Close dialog" (click)="closeCvModal()">✕</button>
+  </div>
+</div>
 
 <app-scroll-top-button checkId="home" targetId="home" [thresholdPx]="300"></app-scroll-top-button>

@@ -13,7 +13,9 @@ import { faBriefcase, faCode, faCog, faDatabase, faLaptopCode } from '@fortaweso
 export class ExperienceCardComponent implements OnInit {
   @Input() role!: string;
   @Input() company!: string;
+  @Input() client?: string;    // end-client for consultancy placements
   @Input() description!: string;
+  @Input() highlights: string[] = []; // achievement / responsibility bullets
   @Input() location!: string;
   @Input() flagSrc!: string;
   @Input() icon!: string;

@@ -10,8 +10,13 @@
         <!-- Text content -->
         <div>
           <h5 class="fw-bold mb-3 mt-0">{{ role }}</h5>
-          <h6 class="fw-semibold">{{ company }}</h6>
+          <h6 class="fw-semibold">
+            {{ company }}<span *ngIf="client" class="client-tag"> · client: {{ client }}</span>
+          </h6>
           <p class="text-secondary-white mb-3">{{ description }}</p>
+          <ul class="exp-highlights text-secondary-white mb-3" *ngIf="highlights?.length">
+            <li *ngFor="let point of highlights">{{ point }}</li>
+          </ul>
           <div class="tech-stack mt-1 mb-3">
             <span class="tech-pill" *ngFor="let tech of techStack">
               {{ tech }}

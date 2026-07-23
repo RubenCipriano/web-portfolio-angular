@@ -52,6 +52,40 @@
   box-shadow: var(--shadow-card);
 }
 
+/* Consultancy end-client tag next to the employer name */
+.client-tag {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Achievement / responsibility bullets under the role summary */
+.exp-highlights {
+  margin: 0 0 1rem;
+  padding-left: 1.1rem;
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-left: 0.35rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -0.85rem;
+      top: 0.62em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+    }
+
+    &:last-child { margin-bottom: 0; }
+  }
+}
+
 /* Layout for the shared global .tech-pill */
 .tech-stack {
   display: flex;

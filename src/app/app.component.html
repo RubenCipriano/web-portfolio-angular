@@ -7,13 +7,14 @@
   <section id="home" class="hero">
     <div class="hero-glow" aria-hidden="true"></div>
     <div class="container hero-inner text-center">
-      <span class="eyebrow justify-content-center">Based in Portugal</span>
+      <span class="eyebrow justify-content-center">Full-Stack Developer · Lisbon, Portugal</span>
       <h1 class="hero-title">
-        Quality <span class="accent-text">development &amp; design</span><br />
-        of web applications
+        Building <span class="accent-text">enterprise web apps</span><br />
+        with React &amp; .NET
       </h1>
       <p class="hero-sub">
-        Hi, I'm Ruben Cipriano — a software developer always looking to learn new tech.
+        Hi, I'm Ruben Cipriano — a Lisbon-based software developer shipping scalable
+        React, Next.js and C#/.NET applications for banking, public-sector and enterprise clients.
       </p>
 
       <div class="hero-actions">
@@ -43,8 +44,8 @@
         <span class="eyebrow">What I use</span>
         <h2 class="section-title">Skillset</h2>
         <p class="section-lead">
-          The stack I work with day to day — across the latest and older versions — as a
-          full-stack and front-end developer for multiple companies.
+          The stack I work with day to day — from React, Next.js and TypeScript on the front end to
+          C#/.NET and Node.js on the back end — plus the databases, DevOps and testing tools I ship with.
         </p>
       </div>
 
@@ -56,6 +57,40 @@
             [image]="tech.image"
             [bgColorClass]="tech.bgColorClass">
           </app-tech-card>
+        </div>
+      </div>
+
+      <!-- Full toolbox, grouped -->
+      <div class="row g-3 mt-3 skill-groups" data-aos="fade-up">
+        <div class="col-lg-4 col-md-6" *ngFor="let group of skillGroups">
+          <div class="surface skill-group h-100">
+            <h3 class="skill-group-title">
+              <fa-icon [icon]="['fas', group.icon]" class="skill-group-icon"></fa-icon>
+              {{ group.title }}
+            </h3>
+            <div class="skill-pills">
+              <span class="tech-pill" *ngFor="let item of group.items">{{ item }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spoken languages -->
+      <div class="languages-block mt-5" data-aos="fade-up">
+        <h3 class="skill-group-title mb-3">
+          <fa-icon [icon]="['fas', 'language']" class="skill-group-icon"></fa-icon>
+          Spoken Languages
+        </h3>
+        <div class="row g-3">
+          <div class="col-md-6" *ngFor="let lang of languages">
+            <div class="surface language-card d-flex align-items-center">
+              <img [src]="lang.flag" [alt]="lang.name + ' flag'" width="24" height="18" class="me-3 flag">
+              <div>
+                <div class="fw-semibold">{{ lang.name }}</div>
+                <div class="text-secondary-white">{{ lang.level }}</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -75,7 +110,9 @@
         *ngFor="let exp of experiences"
         [role]="exp.role"
         [company]="exp.company"
+        [client]="exp.client"
         [description]="exp.description"
+        [highlights]="exp.highlights ?? []"
         [location]="exp.location + ' - ' + exp.workType"
         [flagSrc]="exp.flagSrc"
         [icon]="exp.icon"

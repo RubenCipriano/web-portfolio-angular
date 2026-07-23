@@ -57,6 +57,55 @@
   justify-content: center;
 }
 
+/* ===== Skillset — grouped toolbox + languages ===== */
+.skill-group {
+  padding: 1.4rem 1.5rem;
+  height: 100%;
+}
+
+.skill-group-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 1rem;
+}
+
+.skill-group-icon {
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+
+  .tech-pill {
+    font-size: 0.75rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      border-color: var(--card-border-hover);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.language-card {
+  padding: 1rem 1.25rem;
+  height: 100%;
+
+  .flag {
+    width: 24px;
+    height: 18px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+}
+
 /* ===== Footer ===== */
 .footer-heading {
   font-family: var(--font-display);

@@ -1,109 +1,166 @@
 [
   {
-      "role": "Front-end Developer",
-      "company": "Growmate",
-      "startDate": "2025-06-01",
-      "endDate": "Present",
-      "location": "Oriente, Lisbon, Portugal",
-      "workType": "Hybrid",
-      "icon": "fa-solid fa-code",
-      "flagSrc": "https://flagcdn.com/24x18/pt.png",
-      "description": "Working as a front-end developer consultant for the client \"IRN\" in Oriente, Lisbon. Building a greenfield enterprise web app with React (v18/v19) and Next.js, a modular multi-step rendering system, and integrating Keycloak for secure token management and mosparo for bot protection.",
-      "techStack": [
-        "React",
-        "Next JS",
-        "TypeScript",
-        "HTML",
-        "CSS",
-        "Keycloak",
-        "CI/CD",
-        "Git",
-        "Unit Testing"
-      ]
-    },
-    {
-      "role": "Full stack Developer",
-      "company": "Neotalent",
-      "startDate": "2024-05-01",
-      "endDate": "2025-06-01",
-      "location": "Lisboa, Portugal",
-      "workType": "Hybrid",
-      "icon": "fa-solid fa-briefcase",
-      "flagSrc": "https://flagcdn.com/24x18/pt.png",
-      "description": "Working as a Full-Stack developer as a consultant for VORTAL, a client in Lisbon, working in the operations teams, checking tickets and fixing problems and incidents related to the e-tendering public platform.",
-      "techStack": [
-        "C#",
-        "React",
-        "Git",
-        "HTML",
-        "CSS",
-        "CI/CD",
-        "SQL Server",
-        "Azure DevOps",
-        "Docker",
-        "Restful APIs"
-      ]
-    },
-    {
-      "role": "Back end Developer",
-      "company": "VIA Consulting S.A.",
-      "startDate": "2023-01-01",
-      "endDate": "2024-05-01",
-      "location": "Lisboa, Portugal",
-      "workType": "Remote",
-      "icon": "fa-solid fa-database",
-      "flagSrc": "https://flagcdn.com/24x18/pt.png",
-      "description": "Worked as a Backend developer using C# and Java as main programming languages, worked alongside Ageas Seguros for clients such as Millennium BCP and ActivoBanco as well as SIBS for reporting integrations.",
-      "techStack": [
-        "C#",
-        "Java",
-        "SVN",
-        "SQL Server",
-        "MySQL",
-        "Restful APIs",
-        "SOAP APIs",
-        "Unit Testing",
-        "Functional Testing"
-      ]
-    },
-    {
-      "role": "Front-end Developer - Intern",
-      "company": "Emvenci Business Services",
-      "startDate": "2022-03-01",
-      "endDate": "2022-08-01",
-      "location": "Lisboa, Portugal",
-      "workType": "Presencial",
-      "icon": "fa-solid fa-code",
-      "flagSrc": "https://flagcdn.com/24x18/pt.png",
-      "description": "Worked as a frontend developer, fixing bugs and implementing new features following Atomic Design principles, modernizing a legacy UI into a new Angular-based design system.",
-      "techStack": [
-        "Typescript",
-        "Angular",
-        "SCSS",
-        "HTML",
-        "Git",
-        "CI/CD"
-      ]
-    },
-    {
-      "role": "Front-end Developer - Intern",
-      "company": "Arquiconsult",
-      "startDate": "2020-03-01",
-      "endDate": "2020-08-01",
-      "location": "Odivelas, Lisboa, Portugal",
-      "workType": "Presencial",
-      "icon": "fa-solid fa-laptop-code",
-      "flagSrc": "https://flagcdn.com/24x18/pt.png",
-      "description": "Worked across the stack using C#, ASP.NET Core and Entity Framework to build a backoffice application, created Razor Pages, and integrated the Google Maps API to map parks and trees, supporting a Xamarin mobile app.",
-      "techStack": [
-        "C#",
-        "ASP.NET Core",
-        "Entity Framework",
-        "Razor Pages",
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Git"
-      ]
-    }
-  ]
+    "role": "Front-End Developer",
+    "company": "Growmate",
+    "client": "IRN",
+    "startDate": "2025-06-01",
+    "endDate": "Present",
+    "location": "Oriente, Lisbon, Portugal",
+    "workType": "Hybrid",
+    "icon": "fa-solid fa-code",
+    "flagSrc": "https://flagcdn.com/24x18/pt.png",
+    "description": "Front-end developer (consultant, via Growmate) on a greenfield, high-traffic enterprise platform for the client IRN in Lisbon — building a scalable React 18/19 + Next.js architecture with secure authentication and production-grade delivery.",
+    "highlights": [
+      "Owned the platform's payment flows end to end — built safeguards to prevent fraud and catch misaligned values, and coordinated across multiple teams to reconcile discrepancies.",
+      "Designed and extended a modular, multi-step form-rendering engine in React 18/19 + Next.js to drive complex enterprise workflows.",
+      "Integrated Keycloak (OAuth 2.0 / OIDC) authentication wired to Portugal's Chave Móvel Digital (CMD) government identity, plus a payment-provider integration.",
+      "Hardened public submissions with mosparo bot protection and validated behaviour under load/stress testing.",
+      "Partnered with back-end teams on secure REST API contracts and Kafka event streaming across the front end, API and database layers.",
+      "Worked in a containerised delivery stack (Docker) as the team migrated toward Kubernetes and Jenkins pipelines; wrote unit/component tests with Jest in an Agile/Scrum workflow.",
+      "Mentored interns and junior developers, and used AI tooling (Claude) to accelerate feature delivery."
+    ],
+    "techStack": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "SCSS",
+      "Keycloak",
+      "OAuth2 / OIDC",
+      "Kafka",
+      "REST APIs",
+      "Docker",
+      "Kubernetes",
+      "Jenkins",
+      "CI/CD",
+      "Git",
+      "Jest",
+      "Agile / Scrum"
+    ]
+  },
+  {
+    "role": "Full-Stack Developer",
+    "company": "Neotalent",
+    "client": "VORTAL",
+    "startDate": "2024-05-01",
+    "endDate": "2025-06-01",
+    "location": "Lisbon, Portugal",
+    "workType": "Hybrid",
+    "icon": "fa-solid fa-briefcase",
+    "flagSrc": "https://flagcdn.com/24x18/pt.png",
+    "description": "Full-stack developer (consultant, via Neotalent) on VORTAL's enterprise e-tendering platform — keeping a high-availability public-procurement system stable while shipping full-stack features across a C#/ASP.NET back end and a React front end.",
+    "highlights": [
+      "Resolved production incidents and bugs end to end across C#/ASP.NET services and React UIs, minimising downtime on a public-facing platform.",
+      "Developed and maintained full-stack features from SQL Server data access through to the React interface.",
+      "Built and optimised CI/CD pipelines in Azure DevOps for reliable, repeatable deployments.",
+      "Refactored legacy modules to improve performance, maintainability and scalability.",
+      "Worked in an Agile team alongside operations, development and infrastructure to resolve complex cross-layer issues."
+    ],
+    "techStack": [
+      "C#",
+      "ASP.NET",
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "SQL Server",
+      "REST APIs",
+      "Azure DevOps",
+      "Docker",
+      "CI/CD",
+      "Git",
+      "NUnit",
+      "Jest",
+      "Agile / Scrum"
+    ]
+  },
+  {
+    "role": "Back-End Developer",
+    "company": "VIA Consulting S.A.",
+    "client": "Ageas Seguros (Millennium BCP, ActivoBanco, SIBS)",
+    "startDate": "2023-01-01",
+    "endDate": "2024-05-01",
+    "location": "Lisbon, Portugal",
+    "workType": "Remote",
+    "icon": "fa-solid fa-database",
+    "flagSrc": "https://flagcdn.com/24x18/pt.png",
+    "description": "Back-end developer who took sole ownership of a stalled integration project for regulated financial clients — Millennium BCP, ActivoBanco, Ageas Seguros and SIBS — turning it around and delivering secure banking/insurance integrations to production.",
+    "highlights": [
+      "Single-handedly took over a stalled, non-functional project — fixed the outstanding issues, delivered it to production, and built new features for Millennium BCP and Ageas Seguros.",
+      "Shipped online pet insurance for Millennium BCP — a product the bank previously didn't offer — now live in the MBCP mobile app.",
+      "Designed and shipped REST APIs in C# and Java to integrate partner systems, including a Millennium BCP service bridging to Ageas over SOAP.",
+      "Automated detection and processing of financial files (movements, transfers) with Rundeck jobs, persisting to MySQL / SQL Server.",
+      "Contributed to a virtual-wallet solution for Medis enabling customers to earn and redeem points/cash for services.",
+      "Wrote unit and functional tests (NUnit) and managed delivery with Git, SVN and Azure DevOps CI/CD pipelines."
+    ],
+    "techStack": [
+      "C#",
+      "Java",
+      "REST APIs",
+      "SOAP",
+      "SQL Server",
+      "MySQL",
+      "Rundeck",
+      "Azure DevOps",
+      "CI/CD",
+      "Git",
+      "SVN",
+      "NUnit",
+      "Unit Testing",
+      "Functional Testing",
+      "Agile / Scrum"
+    ]
+  },
+  {
+    "role": "Front-End Developer — Intern",
+    "company": "Emvenci Business Services",
+    "startDate": "2022-03-01",
+    "endDate": "2022-08-01",
+    "location": "Lisbon, Portugal",
+    "workType": "On-site",
+    "icon": "fa-solid fa-code",
+    "flagSrc": "https://flagcdn.com/24x18/pt.png",
+    "description": "Front-end intern modernising a legacy platform UI into a new Angular design system built on Atomic Design principles.",
+    "highlights": [
+      "Rebuilt UI components in Angular + TypeScript + SCSS following Atomic Design for reuse and visual consistency.",
+      "Fixed bugs and improved front-end maintainability and scalability through a structured component architecture.",
+      "Collaborated with the development team in a Git + CI/CD workflow to ship UI improvements."
+    ],
+    "techStack": [
+      "TypeScript",
+      "Angular",
+      "SCSS",
+      "HTML",
+      "CSS",
+      "AWS",
+      "Git",
+      "CI/CD"
+    ]
+  },
+  {
+    "role": "Software Developer — Intern",
+    "company": "Arquiconsult",
+    "startDate": "2020-03-01",
+    "endDate": "2020-08-01",
+    "location": "Odivelas, Lisbon, Portugal",
+    "workType": "On-site",
+    "icon": "fa-solid fa-laptop-code",
+    "flagSrc": "https://flagcdn.com/24x18/pt.png",
+    "description": "Full-stack intern building a back-office application and its mobile-facing APIs, working across C#/ASP.NET Core and the front end.",
+    "highlights": [
+      "Built a back-office application with C#, ASP.NET Core and Entity Framework, including Razor Pages UI.",
+      "Developed APIs consumed by a Xamarin mobile client for back-office ↔ mobile communication.",
+      "Integrated the Google Maps API (with jQuery) to map parks and trees, persisting to a SQL Server database."
+    ],
+    "techStack": [
+      "C#",
+      "ASP.NET Core",
+      "Entity Framework",
+      "Razor Pages",
+      "SQL Server",
+      "JavaScript",
+      "jQuery",
+      "Git"
+    ]
+  }
+]

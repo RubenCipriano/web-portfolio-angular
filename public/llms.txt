@@ -22,7 +22,9 @@ Portuguese (native), English (C1, professional working proficiency).
 
 ## Experience
 - Full-stack Developer — Growmate (2025–present), consulting for client IRN, Lisbon.
-  Owns payment/fraud-prevention flows; fixed 100+ urgent/critical issues (authentication,
+  Owns payment/fraud-prevention flows (resolved 85% of payment incidents, +30% security/stability);
+  led the platform's largest refactor — 65% of client /api/* calls replaced with Next.js Server
+  Components, cutting back-end calls 75%; fixed 100+ urgent/critical issues (authentication,
   payments, accessibility, UI/UX); Keycloak + Chave Móvel Digital (CMD) auth,
   React/Next.js front ends and C#/.NET back-end services, Kafka, Redis; mentors juniors.
 - Full-stack Developer — Neotalent / VORTAL (2024–2025), e-tendering public platform (C#, React).

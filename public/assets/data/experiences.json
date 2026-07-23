@@ -11,13 +11,14 @@
     "flagSrc": "https://flagcdn.com/24x18/pt.png",
     "description": "Full-stack developer (consultant, via Growmate) on a greenfield, high-traffic enterprise platform for the client IRN in Lisbon — building scalable React 18/19 + Next.js front ends and C#/.NET back-end services with secure authentication and production-grade delivery.",
     "highlights": [
-      "Own the platform's payment flows end to end — engineered fraud-prevention and value-reconciliation safeguards that catch misaligned amounts before they reach customers, coordinating across teams to resolve discrepancies.",
+      "Own the platform's payment flows end to end — engineered fraud-prevention and value-reconciliation safeguards that resolved 85% of payment-related incidents and improved platform security and stability by 30%, coordinating fixes across multiple teams.",
+      "Led the platform's largest refactor (the step / service-step flow): replaced 65% of client-side /api/* calls with Next.js Server Components and standardized data flow through a small set of shared components, cutting back-end call volume by 75%.",
       "Resolved 100+ urgent and critical issues across authentication, payments, accessibility and UI/UX through root-cause analysis and debugging of C#/.NET services and React front ends.",
       "Designed and extended a modular, multi-step form-rendering engine in React 18/19 + Next.js to drive complex enterprise workflows.",
       "Integrated Keycloak (OAuth 2.0 / OIDC) authentication wired to Portugal's Chave Móvel Digital (CMD) government identity, plus a payment-provider integration.",
       "Hardened public submissions with mosparo bot protection and validated behaviour under load/stress testing.",
       "Built secure REST APIs with Kafka event streaming and Redis caching across the C#/.NET back end, the React/Next.js front end and the database layer.",
-      "Helped modernise delivery — moving the app from Docker to Kubernetes with Jenkins CI/CD pipelines for repeatable deployments; wrote unit/component tests with Jest in an Agile/Scrum workflow.",
+      "Re-architected delivery into a multi-containerized stack — Docker to Kubernetes with Jenkins CI/CD pipelines for repeatable deployments; wrote unit/component tests with Jest in an Agile/Scrum workflow.",
       "Mentored interns and junior developers, and used AI tooling (Claude) to accelerate feature delivery."
     ],
     "techStack": [

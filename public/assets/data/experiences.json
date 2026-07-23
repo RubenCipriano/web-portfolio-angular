@@ -53,7 +53,7 @@
     "flagSrc": "https://flagcdn.com/24x18/pt.png",
     "description": "Full-stack developer (consultant, via Neotalent) on VORTAL's enterprise e-tendering platform, as part of Operations Team II — the escalation tier that resolves the real underlying defects and tests incident fixes, rather than the first-line user unblocking handled by Operations I.",
     "highlights": [
-      "On Operations Team II, diagnosed, resolved and tested complex production incidents and bugs across C#/ASP.NET services and React UIs, minimising downtime on a high-availability public-facing platform.",
+      "On Operations Team II — the escalation tier that fixes the real underlying defects — resolved 100+ urgent and critical issues spanning authentication, payments, accessibility and UI/UX across C#/ASP.NET services and React UIs, minimising downtime on a high-availability public-procurement platform.",
       "Developed and maintained full-stack features from SQL Server data access through to the React interface.",
       "Built and optimised CI/CD pipelines in Azure DevOps for reliable, repeatable deployments.",
       "Refactored legacy modules to improve performance, maintainability and scalability.",

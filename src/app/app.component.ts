@@ -68,7 +68,7 @@ export class AppComponent implements OnInit {
   // Spoken languages.
   languages = [
     { name: 'Portuguese', level: 'Native', flag: 'https://flagcdn.com/24x18/pt.png' },
-    { name: 'English', level: 'Professional working proficiency', flag: 'https://flagcdn.com/24x18/gb.png' },
+    { name: 'English', level: 'C1 · Professional working proficiency', flag: 'https://flagcdn.com/24x18/gb.png' },
   ];
 
   ngOnInit(): void {

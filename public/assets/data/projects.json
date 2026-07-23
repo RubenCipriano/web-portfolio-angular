@@ -2,21 +2,21 @@
   {
     "title": "OpenHours — Team Time Tracking",
     "description": "A multi-user, self-hosted time-logging app built on top of OpenProject. Teams log hours against projects and tasks; entries are drafted locally and synced to OpenProject, with a policy-aware calendar, weekly targets and per-user stats. In production use at IRN.",
-    "techStack": ["React", "TypeScript", "Vite", "Tailwind CSS", "Fastify", "PostgreSQL", "OpenProject API"],
+    "techStack": ["React 18", "TypeScript 5.7", "Vite 6", "Tailwind CSS 3.4", "Fastify 5", "PostgreSQL", "Redis", "OpenProject API"],
     "liveUrl": "https://horas.zerodown.top/",
     "featured": true
   },
   {
     "title": "Income Planner — Portugal",
     "description": "A Portuguese income & tax planner that compares working as an employee, freelancer or company (Lda.) side by side with current tax rules — including Coverflex benefits, IRS Jovem, break-even, salary/dividend optimisation and investment projections. Exports to PDF and Excel.",
-    "techStack": ["Svelte", "Vite", "PocketBase", "Zod", "Charts", "Google OAuth"],
+    "techStack": ["Svelte 5", "Vite 6", "PocketBase 0.27", "Zod 4", "Charts", "Google OAuth"],
     "liveUrl": "https://finances.zerodown.top/",
     "featured": true
   },
   {
     "title": "Discord Music Bot + Dashboard",
     "description": "A multi-guild, MEE6-style Discord bot: play and queue music from YouTube, set up Twitch live notifications and manage feature modules — all configured through a web dashboard with Discord sign-in.",
-    "techStack": ["Next.js", "React", "TypeScript", "discord.js", "Node.js", "SQLite", "Docker"],
+    "techStack": ["Next.js 15", "React 19", "TypeScript 5.7", "discord.js 14", "Node.js", "SQLite", "Docker"],
     "liveUrl": "https://bot.zerodown.top/",
     "featured": true
   },
@@ -30,7 +30,7 @@
   {
     "title": "Developer Portfolio",
     "description": "This portfolio site — a server-rendered Angular 20 app with a light/dark theme, prerendering for SEO, and data-driven sections. Built with Bootstrap and custom SCSS.",
-    "techStack": ["Angular", "TypeScript", "SCSS", "Bootstrap", "SSR"],
+    "techStack": ["Angular 20", "TypeScript 5.8", "SCSS", "Bootstrap 5.3", "SSR"],
     "liveUrl": "https://rubencipriano.top",
     "repoUrl": "https://github.com/RubenCipriano/web-portfolio-angular",
     "featured": false
